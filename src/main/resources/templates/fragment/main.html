@@ -36,12 +36,20 @@
         		<span class="logo-title">아리에떼[[Ariete]]</span>
         	</a>
         </div>
-        <div class="upm-menu">
+        <div class="upm-menu" th:if="not ${session.loginMember}">
           <div class="login">
           	<a href="" th:href="@{/login}">로그인</a>
           </div>
           <div class="join">
           	<a href="" th:href="@{/members/join}">회원가입</a>
+          </div>
+        </div>
+        <div class="upm-menu" th:if="${session.loginMember}">
+          <div class="login">
+          	<a href="" th:href="@{/logout}">로그아웃</a>
+          </div>
+          <div class="join">
+          	<a href="" th:href="@{/members/myinfo}" th:text="|내정보(${session.loginMember.nickname})|">내정보</a>
           </div>
         </div>
       </div>
@@ -56,10 +64,10 @@
         <nav>
           <ul class="depth1">
             <li class="item">
-              <a href="#">menu1</a>
+              <a href="#" th:text="#{gnb.menu.depth1.order1}">menu1</a>
               <ul class="depth2">
-                <li class="item"><a href="#">menu-1</a></li>
-                <li class="item"><a href="#">menu-2</a></li>
+                <li class="item"><a href="#" th:text="#{gnb.menu.depth2.order1}">menu-1</a></li>
+                <li class="item"><a href="#" th:text="#{gnb.menu.depth2.order2}">menu-2</a></li>
               </ul>
             </li>
             <li class="item">
