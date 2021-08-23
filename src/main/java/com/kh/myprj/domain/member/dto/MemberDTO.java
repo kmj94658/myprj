@@ -15,7 +15,7 @@ public class MemberDTO {
   private String nickname;			//nickname  varchar2(30),
   private String gender;				//gender    char(3),
   private String region;				//region    varchar2(30),
-  private java.sql.Date birth;						//birth     date,
+  private java.sql.Date birth;	//birth     date,
   private String letter;				//letter    char(1),
   private long fid;							//fid       number(10),
   private LocalDateTime cdate;	//cdate     timestamp default systimestamp,

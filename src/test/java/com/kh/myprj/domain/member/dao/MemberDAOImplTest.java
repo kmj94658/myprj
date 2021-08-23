@@ -23,6 +23,8 @@ public class MemberDAOImplTest {
 	@DisplayName("가입")
 	@Disabled
 	void insert() {
+		
+		//간단하게 dto객체 만들고 집어넣기
 		MemberDTO mdto = new MemberDTO();
 		
 		mdto.setEmail("test2@test.com");

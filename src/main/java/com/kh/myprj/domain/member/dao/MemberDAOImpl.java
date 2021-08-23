@@ -58,7 +58,7 @@ public class MemberDAOImpl implements MemberDAO {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement(sql.toString(), new String[] {"id"});
+				PreparedStatement pstmt = con.prepareStatement(sql.toString(), new String[] {"id"}); //id는 컬럼명
 				pstmt.setString(1, memberDTO.getEmail());
 				pstmt.setString(2, memberDTO.getPw());
 				pstmt.setString(3, memberDTO.getTel());
@@ -73,7 +73,7 @@ public class MemberDAOImpl implements MemberDAO {
 		}, keyHolder);
 			
 		
-		return keyHolder.getKeyAs(BigDecimal.class).longValue();
+		return keyHolder.getKeyAs(BigDecimal.class).longValue(); //컬럼에 대한 키로 값을 불러온다
 	}
 	//id로 조회
 	@Override
@@ -118,5 +118,20 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class),email);
 		return mdto;
+	}
+	@Override
+	public List<MemberDTO> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void update(long id, MemberDTO memberDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
 	}
 }

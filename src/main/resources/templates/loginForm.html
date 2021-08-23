@@ -52,7 +52,7 @@
       			<ul>	
       				<li th:errors="*{global}" th:errorclass="field-msg">
 								<p th:each="err : ${#fields.globalErrors()}"
-																			 th:text="${err}">글로벌 오류 메시지</p>      				
+																			 th:text="${err}">글로벌 오류 메시지</p> <!-- p태그가 반복문 만큼 만들어진다 -->     				
       				</li>
       				<li><input class="frm-ctr" type="text" placeholder="아이디를 입력하세요"
       									 th:value="*{email}" th:field="*{email}"/></li>

@@ -48,6 +48,7 @@ public class HomeController {
 		}else if("admin@test.com".equals(loginForm.getEmail()) && "admin1234".equals(loginForm.getPw())){
 			loginMember = new LoginMember("admin","관리자","admin");
 		}else {
+			//글로벌 오류 추가
 			bindingResult.reject("loginChk", "아이디 또는 비밀번호가 잘못되었습니다");			
 		}
 		//글로벌오류 체크
@@ -57,6 +58,7 @@ public class HomeController {
 		}
 		
 		//세션생성
+		//세션정보가 없으면 새로 생성
 		HttpSession session =request.getSession(true);
 		session.setAttribute("loginMember", loginMember );
 		
@@ -70,7 +72,7 @@ public class HomeController {
 		HttpSession session = request.getSession(false);
 		//세션제거
 		if(session != null) {
-			session.invalidate();
+			session.invalidate(); //디폴트설정이 30분이라 지나면 자동 로그아웃된다
 		}
 		
 		return "home";

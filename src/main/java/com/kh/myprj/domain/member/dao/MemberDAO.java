@@ -1,5 +1,7 @@
 package com.kh.myprj.domain.member.dao;
 
+import java.util.List;
+
 import com.kh.myprj.domain.member.dto.MemberDTO;
 
 public interface MemberDAO {
@@ -10,6 +12,8 @@ public interface MemberDAO {
 	 * @return
 	 */
 	long insert(MemberDTO memberDTO);
+	
+	MemberDTO findByIdPw(String id, String pw);
 	
 	/**
 	 * 조회 by id
@@ -24,5 +28,22 @@ public interface MemberDAO {
 	 * @return
 	 */
 	MemberDTO findByEmail(String email);
+	
+	
+	List<MemberDTO> selectAll();
+	
+	/**
+	 * 수정
+	 * @param id
+	 * @param memberDTO
+	 */
+	void update(long id, MemberDTO memberDTO);
+	
+	/**
+	 * 삭제
+	 * @param id
+	 */
+	void delete(long id);
+
 
 }
