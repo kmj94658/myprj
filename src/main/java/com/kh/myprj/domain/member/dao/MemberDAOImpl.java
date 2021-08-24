@@ -2,12 +2,14 @@ package com.kh.myprj.domain.member.dao;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -94,7 +96,7 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.append("from member ");
 		sql.append("where id =? ");
 		
-		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class),id);
+		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class), id);
 		return mdto;
 	}
 	//email로 조회
@@ -114,11 +116,12 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.append("  cdate, ");
 		sql.append("  udate ");
 		sql.append("from member ");
-		sql.append("where email =? ");
+		sql.append("where email = ? ");
 		
-		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class),email);
+		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class), email);
 		return mdto;
 	}
+	
 	@Override
 	public List<MemberDTO> selectAll() {
 		// TODO Auto-generated method stub
@@ -129,9 +132,98 @@ public class MemberDAOImpl implements MemberDAO {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//id로 삭제
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		String sql = "delete from member where id = ? ";
+		jt.update(sql, id);
+	}
+	
+	//이메일로 삭제
+	@Override
+	public void delete(String email) {
+		String sql = "delete from member where email = ? ";
+		jt.update(sql, email);
+	}
+	
+	//취미
+	@Override
+	public void addHobby(long id, List<String> hobbies) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("insert into hobby (member_id, code_code) values ( ? , ? )");
+		
+		jt.batchUpdate(sql.toString(), new BatchPreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps, int i) throws SQLException {
+				ps.setLong(1, id);
+				ps.setString(2, hobbies.get(i));				
+			}
+			
+			@Override
+			public int getBatchSize() {
+				return hobbies.size();
+			}
+		});
 		
 	}
+	
+	//취미 삭제
+	@Override
+	public void delHobby(long id) {
+		String sql = "delete from hobby where id = ? ";
+		jt.update(sql, id);
+	}
+	
+	//이메일 존재유무
+	@Override
+	public boolean isExistEmail(String email) {
+		boolean isExistEmail = false;
+		String sql = "select count(*) from member where email = ? ";
+		Integer cnt = jt.queryForObject(sql, Integer.class, email);
+		if(cnt == 1) isExistEmail = true;
+		return isExistEmail;
+	}
+	
+	//로그인 체크
+	@Override
+	public boolean islogin(String email, String pw) {
+		boolean isLogin = false;
+		StringBuffer sql = new StringBuffer();
+		sql.append("select count(email) from member ");
+		sql.append("where email = ? ");
+		sql.append(" 	and pw = ? ");
+		
+		Integer cnt = jt.queryForObject(sql.toString(), Integer.class, email, pw);
+		if(cnt == 1) isLogin = true;
+		return isLogin;
+	}
+	
+	//아이디 찾기
+	@Override
+	public String findEmail(String tel, Date birth) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select email from member ");
+		sql.append(" where tel = ? ");
+		sql.append(" and birth = ? ");
+		
+		String email = jt.queryForObject(sql.toString(), String.class, tel, birth);
+		return email;
+	}
+	
+	//비밀번호 찾기
+	@Override
+	public String findPw(String email, String tel, Date birth) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select pw from member ");
+		sql.append(" where email = ? ");
+		sql.append(" and tel = ? ");
+		sql.append(" and birth = ? ");
+		
+		String pw = jt.queryForObject(sql.toString(), String.class, email, tel, birth);
+		return pw;
+	}
+	
+	
 }

@@ -1,5 +1,6 @@
 package com.kh.myprj.domain.member.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.kh.myprj.domain.member.dto.MemberDTO;
@@ -13,7 +14,20 @@ public interface MemberDAO {
 	 */
 	long insert(MemberDTO memberDTO);
 	
-	MemberDTO findByIdPw(String id, String pw);
+	//MemberDTO findByIdPw(String id, String pw);
+	
+	/**
+	 * 취미 추가
+	 * @param id
+	 * @param hobbies
+	 */
+	void addHobby(long id,List<String> hobbies);
+	
+	/**
+	 * 취미 삭제
+	 * @param id
+	 */
+	void delHobby(long id);
 	
 	/**
 	 * 조회 by id
@@ -29,7 +43,26 @@ public interface MemberDAO {
 	 */
 	MemberDTO findByEmail(String email);
 	
+	/**
+	 * 해당 이메일 회원존재유무 체크
+	 * @param email
+	 * @return
+	 */
+	boolean isExistEmail(String email);
 	
+	/**
+	 * 로그인 체크
+	 * @param id
+	 * @param pw
+	 * @return
+	 */
+	boolean islogin(String email, String pw);
+	
+	
+	/**
+	 * 목록
+	 * @return
+	 */
 	List<MemberDTO> selectAll();
 	
 	/**
@@ -44,6 +77,27 @@ public interface MemberDAO {
 	 * @param id
 	 */
 	void delete(long id);
+	
+	/**
+	 * 삭제
+	 * @param email
+	 */
+	void delete(String email);
 
-
+	/**
+	 * 이메일 찾기
+	 * @param tel
+	 * @param birth
+	 * @return 이메일
+	 */
+	String findEmail(String tel, Date birth);
+	
+	/**
+	 * 비밀번호 찾기
+	 * @param email
+	 * @param tel
+	 * @param birth
+	 * @return
+	 */
+	String findPw(String email, String tel, Date birth);
 }

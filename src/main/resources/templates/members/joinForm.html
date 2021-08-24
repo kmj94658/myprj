@@ -45,6 +45,10 @@
 					<form class="frm" th:action="@{/members/join}" th:method="post" th:object="${joinForm}" >
 						<ul>
 							<li><h3 class="title">회원 가입</h3></li>
+							<li th:errors="*{global}" th:errorclass="field-msg">
+								<p th:each="err : ${#fields.globalErrors()}"
+																			 th:text="${err}">글로벌 오류 메시지</p> <!-- p태그가 반복문 만큼 만들어진다 -->     				
+      				</li>
 							<li><label for="email">아이디</label></li>
 							<li><input type="text" th:field="*{email}"/></li>
 							<li th:errors="*{email}" th:errorclass="field-msg"></li>

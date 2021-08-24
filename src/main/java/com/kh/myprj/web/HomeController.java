@@ -11,14 +11,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.kh.myprj.domain.member.dto.MemberDTO;
+import com.kh.myprj.domain.member.svc.MemberSVC;
 import com.kh.myprj.web.form.LoginForm;
 import com.kh.myprj.web.form.LoginMember;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
+	
+	private final MemberSVC memberSVC;
 
 	//초기화면
 	@GetMapping("/")
@@ -41,16 +47,23 @@ public class HomeController {
 		
 		log.info("LoginForm:{}",loginForm);
 		
-		LoginMember loginMember = null;		
-		//계정확인
-		if("user@test.com".equals(loginForm.getEmail()) && "user1234".equals(loginForm.getPw())) {
-			loginMember = new LoginMember("user","회원","user");
-		}else if("admin@test.com".equals(loginForm.getEmail()) && "admin1234".equals(loginForm.getPw())){
-			loginMember = new LoginMember("admin","관리자","admin");
-		}else {
-			//글로벌 오류 추가
-			bindingResult.reject("loginChk", "아이디 또는 비밀번호가 잘못되었습니다");			
+		MemberDTO memberDTO = memberSVC.islogin(loginForm.getEmail(), loginForm.getPw());
+		
+		if(memberDTO == null) {
+			bindingResult.reject("error.login", "회원정보가 없습니다");
 		}
+		
+		
+//		//계정확인
+//		if("user@test.com".equals(loginForm.getEmail()) && "user1234".equals(loginForm.getPw())) {
+//			loginMember = new LoginMember("user","회원","user");
+//		}else if("admin@test.com".equals(loginForm.getEmail()) && "admin1234".equals(loginForm.getPw())){
+//			loginMember = new LoginMember("admin","관리자","admin");
+//		}else {
+//			//글로벌 오류 추가
+//			bindingResult.reject("loginChk", "아이디 또는 비밀번호가 잘못되었습니다");			
+//		}
+		
 		//글로벌오류 체크
 		if(bindingResult.hasErrors()) {
 			log.info("BindingResult:{}",bindingResult);
@@ -60,6 +73,7 @@ public class HomeController {
 		//세션생성
 		//세션정보가 없으면 새로 생성
 		HttpSession session =request.getSession(true);
+		LoginMember loginMember = new LoginMember(memberDTO.getEmail(), memberDTO.getNickname(), "회원");		
 		session.setAttribute("loginMember", loginMember );
 		
 		return "redirect:/";

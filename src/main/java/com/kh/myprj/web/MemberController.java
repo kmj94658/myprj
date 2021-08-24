@@ -72,6 +72,18 @@ public class MemberController {
 		log.info("회원가입처리 호출됨!");
 		log.info("joinForm:{}",joinForm);
 		
+		//비밀번호, 비밀번호체크 일치 체크
+		if(!joinForm.getPw().equals(joinForm.getPwChk())) {
+			bindingResult.reject("error.member.join", "비밀번호가 다릅니다");
+			return "members/joinForm";
+		}
+		
+		//회원 존재 유무
+		if(memberSVC.isExistEmail(joinForm.getEmail())) {
+			bindingResult.reject("error.member.join", "동일한 이메일이 존재합니다");
+			return "members/joinForm";
+		}
+		
 		if(bindingResult.hasErrors()) {
 			log.info("errors={}",bindingResult);
 			return "members/joinForm";
