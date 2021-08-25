@@ -15,13 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 @AllArgsConstructor
-@Transactional //1.트랜잭성 보장 2.서비스 층에서 사용
+@Transactional(readOnly = true) //1.트랜잭성 보장 2.서비스 층에서 사용
 public class MemberSVCImpl implements MemberSVC{
 
 	private final MemberDAO memberDAO;
 	
 	//가입
 	@Override
+	@Transactional(readOnly = false)
 	public void join(MemberDTO memberDTO) {
 		long id = memberDAO.insert(memberDTO);
 		
@@ -31,10 +32,23 @@ public class MemberSVCImpl implements MemberSVC{
 			memberDAO.addHobby(id, memberDTO.getHobby());
 		}
 	}
-
+	
 	@Override
+	public MemberDTO findByEmail(String email) {
+		MemberDTO memberDTO = memberDAO.findByEmail(email);
+		memberDTO.setHobby(memberDAO.getHobby(memberDTO.getId()));
+		return memberDTO;
+	}
+
+	//회원정보 수정
+	@Override
+	//@Transactional(readOnly = false)
 	public void update(long id, MemberDTO memberDTO) {
+		//회원수정
 		memberDAO.update(id, memberDTO);
+		//취미수정
+		memberDAO.delHobby(id);
+		memberDAO.addHobby(id, memberDTO.getHobby());
 	}
 
 	//이메일 중복체크
@@ -52,6 +66,13 @@ public class MemberSVCImpl implements MemberSVC{
 			mdto = memberDAO.findByEmail(email);
 		}
 		return mdto;
+	}
+	
+	//회원 유무 체크
+	@Override
+	public boolean isMember(String email, String pw) {
+		
+		return memberDAO.islogin(email, pw);
 	}
 
 	//이메일 찾기

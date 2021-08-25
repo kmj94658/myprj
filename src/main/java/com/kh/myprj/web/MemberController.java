@@ -2,6 +2,8 @@ package com.kh.myprj.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
@@ -20,6 +22,8 @@ import com.kh.myprj.domain.common.dao.CodeDAO;
 import com.kh.myprj.domain.member.dto.MemberDTO;
 import com.kh.myprj.domain.member.svc.MemberSVC;
 import com.kh.myprj.web.form.Code;
+import com.kh.myprj.web.form.LoginMember;
+import com.kh.myprj.web.form.member.EditForm;
 import com.kh.myprj.web.form.member.JoinForm;
 
 import lombok.AllArgsConstructor;
@@ -99,21 +103,62 @@ public class MemberController {
 	 * 회원수정양식
 	 * @return
 	 */
-	@GetMapping("/{id:.+}/edit")
-	public String editForm(@PathVariable("id") String id) {
+	@GetMapping("/edit")
+	public String editForm(HttpServletRequest request, Model model) {
 		log.info("회원수정양식 호출됨!");
-		log.info("회원:{}",id);
-		return "members/editForm";
+		HttpSession session = request.getSession(false);
+		LoginMember loginMember = (LoginMember) session.getAttribute("loginMember");
+		
+		//세션이 없으면 로그인페이지로 이동
+		if(loginMember == null) return "redirect:/login";
+		
+		//회원정보 가져오기
+		MemberDTO memberDTO = memberSVC.findByEmail(loginMember.getEmail());
+		EditForm editForm = new EditForm();
+		BeanUtils.copyProperties(memberDTO, editForm);
+		
+		//뉴스레터 정보 수정하기
+		if (memberDTO.getLetter().equals("1")) {
+			editForm.setLetter(true); 
+		} else {
+			editForm.setLetter(false);
+		}
+		
+		//가져와서 뷰에 넘기려면 모델 필요
+		model.addAttribute("editForm", editForm);
+		
+		return "mypage/memberEditForm";
 	}
 	/**
 	 * 회원수정처리
 	 * @return
 	 */
-	@PatchMapping("/{id:.+}/edit")
-	public String edit(@PathVariable("id") String id) {
+	@PatchMapping("/edit")
+	public String edit(@ModelAttribute EditForm editForm, BindingResult bindingResult, HttpServletRequest request) {
 		log.info("회원수정처리 호출됨");
-		log.info("회원:{}",id);
-		return "home";
+		HttpSession session = request.getSession(false);
+		LoginMember loginMember = (LoginMember) session.getAttribute("loginMember");
+		
+		//세션이 없으면 로그인페이지로 이동
+		if(loginMember == null) return "redirect:/login";
+		
+		//회원정보 수정에서 비밀번호를 잘못 입력했을 경우
+		if(!memberSVC.isMember(loginMember.getEmail(), editForm.getPw())) {
+			bindingResult.rejectValue("pw", "error.member.editForm", "비밀번호가 잘못 입력되었습니다");
+		}
+		
+		//글로벌 오류 체크
+		if(bindingResult.hasErrors()) {
+			log.info("errors:{}", bindingResult);
+			return "members/edit";
+		}
+		
+		MemberDTO mdto = new MemberDTO();
+		BeanUtils.copyProperties(editForm, mdto);
+		mdto.setLetter(editForm.isLetter() ? "1" : "0");
+		
+		memberSVC.update(loginMember.getId(), mdto);
+		return "redirect:/members/edit";
 	}
 	/**
 	 * 회원조회
@@ -125,13 +170,41 @@ public class MemberController {
 		log.info("회원:{}",id);
 		return "members/view";
 	}
+	
 	/**
-	 * 회원탈퇴
+	 * 비밀번호 변경
+	 * @return
+	 */
+	@GetMapping("/pw")
+	public String changePwForm() {
+		return "members/changeForm";
+	}
+	
+	/**
+	 * 비밀번호 변경 처리
+	 * @return
+	 */
+	@PatchMapping("/pw")
+	public String changePw() {
+		return "redirect:/members/mypage";
+	}
+	
+	/**
+	 * 회원 탈퇴 양식
+	 */
+	@GetMapping("/{id:.+}/out")
+	public String out() {
+		log.info("회원 탈퇴 양식 호출됨");
+		return "members/out";
+	}
+	
+	/**
+	 * 회원탈퇴처리
 	 * @return
 	 */
 	@DeleteMapping("/{id:.+}")
 	public String out(@PathVariable("id") String id) {
-		log.info("회원탈퇴");
+		log.info("회원탈퇴 처리 호출됨");
 		log.info("회원:{}",id);
 		return "home";
 	}
@@ -141,7 +214,7 @@ public class MemberController {
 	 */
 	@GetMapping("")
 	public String listAll() {
-		log.info("회원목록");
+		log.info("회원목록 호출됨");
 		return "members/list";
 	}
 }

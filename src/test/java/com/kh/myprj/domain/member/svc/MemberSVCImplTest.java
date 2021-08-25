@@ -36,4 +36,11 @@ public class MemberSVCImplTest {
 		MemberDTO mdto2 = mSVC.islogin("zzz@test.com", "1234");
 		org.assertj.core.api.Assertions.assertThat(mdto2).isEqualTo(null);
 	}
+	
+	@Test
+	@DisplayName("이메일로 회원정보 가져오기")
+	void findByEmail() {
+		MemberDTO mdto = mSVC.findByEmail("test@test.com");
+		log.info("mdto:{}",mdto);
+	}
 }

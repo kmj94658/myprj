@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko" 
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/main::copyParam(
+      	~{::title},	<!--/* title 		대체 */-->
+      	~{::link},	<!--/* links 		추가 */-->
+      	~{},				<!--/* scripts 	생략 */-->
+      	~{},				<!--/* style */-->
+      	~{},				<!--/* header */-->
+      	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
+      	~{::main},  <!--/* main 		대체 */-->
+      	_  					<!--/* footer */ 기본값 사용 */--> 
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>회원수정</title>
+  
+  <link rel="stylesheet" href="/css/xxx.css" />
+  <script src="/js/xxx.js" defer></script>
+  <style>
+  	.global-wrap .gnb .depth1 {
+  		background-color: #fff; color: #333;
+  	}
+  	.global-wrap .inner.main-inner main{
+  		display:flex;
+			justify-content: center;
+			padding:50px;
+  	}
+  	.global-wrap .main .inner.main-inner main .frm{
+  		margin:0 auto;
+  		width:250px;
+  	}
+  </style>
+  
+</head>
+<body>
+  <div class="global-wrap">
+    <div class="hdr">
+      <div class="inner hdr-inner">
+        <header>헤더</header>
+      </div>
+    </div>
+    <div>
+    	<div class="inner gnb-inner">
+    		<nav>
+    			<ul class="depth1">
+            <li class="item">
+              <a href="#" th:text="#{mypage.menu.depth1.order1}">menu1</a>
+              <ul class="depth2">
+                <li class="item">
+                	<a href="#" th:href="@{|/members/edit|}" th:text="#{mypage.menu.depth2.order1}">menu-1</a>
+                </li>
+                <li class="item">
+               		<a href="#" th:text="#{mypage.menu.depth2.order2}">menu-2</a>
+               	</li>
+                <li class="item">
+                	<a href="#" th:text="#{mypage.menu.depth2.order3}">menu-2</a>
+                </li>
+              </ul>
+            </li>
+            
+          </ul>
+    		</nav>
+    	</div>
+    </div>
+    <div class="main">
+      <div class="inner main-inner">
+      	<main>
+      		<form class="frm" th:action="@{/members/edit}" th:method="patch" th:object="${editForm}" >
+						<ul>
+							<li><h3 class="title">회원 수정</h3></li>
+							<li th:errors="*{global}" th:errorclass="field-msg">
+								<p th:each="err : ${#fields.globalErrors()}"
+									 th:text="${err}">글로벌 오류 메시지</p> <!-- p태그가 반복문 만큼 만들어진다 -->     				
+      				</li>
+							<li><label for="email">아이디</label></li>
+							<li><input th:field="*{email}" readonly/></input></li>
+							<li><label for="pw">비밀번호</label></li>
+							<li><input type="password" th:field="*{pw}"/></li>
+							<li th:errors="*{pw}" th:errorclass="field-msg"></li>
+							<li><label for="tel">전화번호</label></li>
+							<li><input type="tel" th:field="*{tel}"/></li>
+							<li th:errors="*{tel}" th:errorclass="field-msg"></li>
+							<li><label for="nickname">별칭</label></li>
+							<li><input type="text" th:field="*{nickname}"/></li>
+							<li th:errors="*{nickname}" th:errorclass="field-msg"></li>
+							<li><label for="gender">성별</label></li>
+							<li>
+								<th:block th:each="item : ${gender}"> <!-- 컨트롤러에서 모델어트리뷰트 만든 gender -->
+									<label th:for="${#ids.next('gender')}" th:text="${item.decode}">남</label>
+									<input type="radio" th:field="*{gender}" th:value="${item.decode}"/>
+								</th:block>
+							</li>
+							<li><label for="region">지역</label></li>
+							<li><select th:field="*{region}">
+									<option value="">==선택==</option>
+									<option th:each="item : ${region}" th:value="${item.code}" th:text="${item.decode}">울산</option>
+							</select></li>
+							<li><label for="birth">생년월일</label></li>
+							<li><input type="date" th:field="*{birth}" /></li>
+							<li th:errors="*{birth}" th:errorclass="field-msg"></li>					
+							<li><label for="hobby">취미</label></li>
+							<li>
+								<div class="hobby">
+									<th:block th:each="item : ${hobby}">
+										<label th:for="${#ids.next('hobby')}" th:text="${item.decode}">등산</label>
+										<input type="checkbox" th:field="*{hobby}" th:value="${item.code}" />
+									</th:block>
+								</div>
+							</li>
+							<li><span class="errmsg" id="errmsg_birth"></span></li>
+							<li>
+								<input type="checkbox" th:field="*{letter}" /><span>뉴스레터 수신에 동의합니다.</span>
+							</li>								
+							<li><input type="submit" value="회원수정" id="modifyBtn"></li>
+						</ul>
+					</form>      	
+      	</main>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="inner foot-inner" th:insert="${footer}">
+        <footer>푸터</footer>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>

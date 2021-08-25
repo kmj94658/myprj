@@ -29,7 +29,7 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	private final JdbcTemplate jt;
 	
-	//가입
+	//회원 가입
 	@Override
 	public long insert(MemberDTO memberDTO) {
 		
@@ -77,7 +77,7 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return keyHolder.getKeyAs(BigDecimal.class).longValue(); //컬럼에 대한 키로 값을 불러온다
 	}
-	//id로 조회
+	//회원 id로 조회
 	@Override
 	public MemberDTO findByID(long id) {
 		StringBuffer sql = new StringBuffer();
@@ -99,7 +99,7 @@ public class MemberDAOImpl implements MemberDAO {
 		MemberDTO mdto = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(MemberDTO.class), id);
 		return mdto;
 	}
-	//email로 조회
+	//회원 email로 조회
 	@Override
 	public MemberDTO findByEmail(String email) {
 		StringBuffer sql = new StringBuffer();
@@ -127,9 +127,24 @@ public class MemberDAOImpl implements MemberDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	//회원정보 수정
 	@Override
 	public void update(long id, MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append("update member  ");
+		sql.append("set tel = ? , ");
+		sql.append("    nickname = ? , ");
+		sql.append("    gender = ? , ");
+		sql.append("    region = ? , ");
+		sql.append("    birth = ? , ");
+		sql.append("    letter = ? , ");
+		sql.append("    udate = systimestamp ");
+		sql.append("where id = ? ");
+		
+		jt.update(sql.toString(), memberDTO.getTel(), memberDTO.getNickname(), memberDTO.getGender(), 
+				memberDTO.getRegion(), memberDTO.getBirth(), memberDTO.getLetter(), id);
 		
 	}
 	
@@ -147,7 +162,7 @@ public class MemberDAOImpl implements MemberDAO {
 		jt.update(sql, email);
 	}
 	
-	//취미
+	//취미 추가
 	@Override
 	public void addHobby(long id, List<String> hobbies) {
 		StringBuffer sql = new StringBuffer();
@@ -172,8 +187,16 @@ public class MemberDAOImpl implements MemberDAO {
 	//취미 삭제
 	@Override
 	public void delHobby(long id) {
-		String sql = "delete from hobby where id = ? ";
+		String sql = "delete from hobby where member_id = ? ";
 		jt.update(sql, id);
+	}
+	
+	//취미 조회
+	@Override
+	public List<String> getHobby(long id) {
+		String sql = "select code_code from hobby where member_id = ? ";
+		
+		return jt.queryForList(sql, String.class, id);
 	}
 	
 	//이메일 존재유무

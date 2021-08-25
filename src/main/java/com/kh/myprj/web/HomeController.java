@@ -73,7 +73,7 @@ public class HomeController {
 		//세션생성
 		//세션정보가 없으면 새로 생성
 		HttpSession session =request.getSession(true);
-		LoginMember loginMember = new LoginMember(memberDTO.getEmail(), memberDTO.getNickname(), "회원");		
+		LoginMember loginMember = new LoginMember(memberDTO.getId(), memberDTO.getEmail(), memberDTO.getNickname(), "회원");		
 		session.setAttribute("loginMember", loginMember );
 		
 		return "redirect:/";

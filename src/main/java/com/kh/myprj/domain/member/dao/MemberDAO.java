@@ -30,6 +30,13 @@ public interface MemberDAO {
 	void delHobby(long id);
 	
 	/**
+	 * 취미 조회
+	 * @param id
+	 * @return
+	 */
+	List<String> getHobby(long id);
+	
+	/**
 	 * 조회 by id
 	 * @param id
 	 * @return
