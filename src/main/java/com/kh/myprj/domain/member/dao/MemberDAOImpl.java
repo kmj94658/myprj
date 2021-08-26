@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -231,7 +232,7 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.append(" where tel = ? ");
 		sql.append(" and birth = ? ");
 		
-		String email = jt.queryForObject(sql.toString(), String.class, tel, birth);
+		String email = jt.queryForObject(sql.toString(), String.class, tel, new SimpleDateFormat("yyyy-MM-dd").format(birth));
 		return email;
 	}
 	
@@ -244,7 +245,7 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.append(" and tel = ? ");
 		sql.append(" and birth = ? ");
 		
-		String pw = jt.queryForObject(sql.toString(), String.class, email, tel, birth);
+		String pw = jt.queryForObject(sql.toString(), String.class, email, tel, new SimpleDateFormat("yyyy-MM-dd").format(birth));
 		return pw;
 	}
 	
