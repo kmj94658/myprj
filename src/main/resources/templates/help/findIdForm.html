@@ -4,8 +4,8 @@
       th:replace="~{fragment/main::copyParam(
       	~{::title},	<!--/* title 		대체 */-->
       	~{::link},	<!--/* links 		추가 */-->
-      	~{},				<!--/* scripts 	생략 */-->
-      	~{},				<!--/* style */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
+      	~{::style},				<!--/* style */-->
       	~{},				<!--/* header */-->
       	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
       	~{::main},  <!--/* main 		대체 */-->
@@ -19,9 +19,103 @@
   <title>HELP</title>
   
   <link rel="stylesheet" href="/css/xxx.css" th:href="@{/css/help/help.css}" />
-  <script src="/js/xxx.js" defer></script>
+  <script src="/js/common/ajaxCall.js" defer></script>
+  <script>
+	  let $hiddens = null;
+    const displayEmail = (res) => {
+    	//찾은 아이디 표시
+	      Array.from($hiddens).forEach(ele=> {
+	        ele.classList.remove("hidden");
+	      });
+	      if(res.rtcd == '00') {
+	    	  email.textContent = res.data;
+	      } else {
+	    	  email.textContent = res.data;
+	      }
+    }
+    //ajax call 통신오류 발생시
+    const displayError = err => {
+    	email.textContent = err.text;
+    }
+    
+  	const init = e => {
+  		$hiddens = document.querySelectorAll(".box1 .hidden");
+	  	const $findBtn = document.getElementById("findBtn");
+	  	$findBtn.addEventListener("click",e=> {
+	      console.log("click");
+	      //클라이언트 레벨 유효성 체크(값을 입력 했는지)
+	      if(tel.value.trim().length == 0) {
+	    	  Array.from($hiddens).forEach(ele=> {
+	  	        ele.classList.remove("hidden");
+	  	      });
+	    	  email.textContent = '전화번호를 입력하세요'
+	    	  tel.focus();
+	    	  tel.select();
+	    	  return;
+	      }
+	      if(birth.value.trim().length == 0) {
+	    	  Array.from($hiddens).forEach(ele=> {
+	  	        ele.classList.remove("hidden");
+	  	      });
+	    	  email.textContent = "생년월일을 입력하세요";
+	    	  birth.focus();
+	    	  birth.select();
+	    	  return;
+	      }
+	      
+	      //ajax call
+	      //요청데이터도 있고 받아와야하니까 post
+	      const url = '/api/members/email';
+	      const payload = {
+	    		tel : tel.value,
+	    		birth : birth.value
+	      };
+	      request.post(url,payload)
+	      			 .then(res=>res.json())
+	      			 .then(res=>displayEmail(res))
+	      			 .catch(err=>displayError(err));
+	    });
+  	};
+  	window.addEventListener("DOMContentLoaded", init);
+  </script>
   <style>
-  
+    .box1 {
+      width: 250px;
+      margin: 100px auto;
+      border: 1px solid #ccc;
+      border-radius: 5%;
+      padding: 10px;
+    }
+    .box1 dl {
+      display: grid;
+      grid-template-columns: 70px 3fr;
+      gap: 5px;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .box1 dd {
+      margin-left: 0;
+    }
+    .box1 dd input{
+    	width:150px;
+    }
+    .box1 h3 {
+      text-align: center;
+    }
+    .box1 button{
+      width: 100%;
+      background-color: #0031ca; color: #fff;
+      font-weight: bold;
+      border: none; outline: none;
+      padding: 5px;
+    }
+    .box1 button:hover {
+      background-color: #3d5afe;
+      cursor: pointer;
+    }
+    .box1 .hidden {
+      display: none;
+    }
   </style>
   
 </head>
@@ -56,7 +150,20 @@
     </div>
     <div class="main">
       <div class="inner main-inner">
-      	<main>아이디 찾기</main>
+      	<main>
+      		<div class="box1">
+				    <h3>아이디 찾기</h3>
+				    <dl>
+				      <dt><label for="">전화번호</label></dt>
+				      <dd><input type="tel" th:field="${findEmailReq.tel}" placeholder="010-1234-5678"></dd>
+				      <dt><label for="">생년월일</label></dt>
+				      <dd><input type="date" th:field="${findEmailReq.birth}"></dd>
+				      <dt class="hidden"><span class="email">아이디</span></dt>
+				      <dd class="hidden"><span class="email" id="email"></span></dd>
+				    </dl>
+				    <button type="button" id="findBtn">아이디 찾기</button>
+				  </div>
+      	</main>
       </div>
     </div>
     <div class="foot">
@@ -65,5 +172,6 @@
       </div>
     </div>    
   </div>
+  
 </body>
 </html>

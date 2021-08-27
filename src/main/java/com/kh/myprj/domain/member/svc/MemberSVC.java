@@ -78,4 +78,11 @@ public interface MemberSVC {
 	 * @return
 	 */
 	String findPw(String email, String tel, Date birth);
+	
+	/**
+	 * 비밀번호 변경
+	 * @param prePw
+	 * @param postPw
+	 */
+	boolean changePw(String email, String prePw, String postPw);
 }

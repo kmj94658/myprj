@@ -100,5 +100,15 @@ public class MemberSVCImpl implements MemberSVC{
 	public void delete(String email) {
 		memberDAO.delete(email);
 	}
+	
+	//비빌번호 변경
+	@Override
+	public boolean changePw(String email, String prePw, String postPw) {
+//		boolean isChanged = false;
+//		if(memberDAO.changePw(prePw, postPw) == 1) isChanged = true;
+//		return isChanged;
+		
+		return memberDAO.changePw(email, prePw, postPw) == 1 ? true : false;
+	}
 
 }

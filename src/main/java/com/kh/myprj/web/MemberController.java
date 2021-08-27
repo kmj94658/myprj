@@ -23,6 +23,7 @@ import com.kh.myprj.domain.member.dto.MemberDTO;
 import com.kh.myprj.domain.member.svc.MemberSVC;
 import com.kh.myprj.web.form.Code;
 import com.kh.myprj.web.form.LoginMember;
+import com.kh.myprj.web.form.member.ChangePwForm;
 import com.kh.myprj.web.form.member.EditForm;
 import com.kh.myprj.web.form.member.JoinForm;
 
@@ -170,25 +171,7 @@ public class MemberController {
 		log.info("회원:{}",id);
 		return "members/view";
 	}
-	
-	/**
-	 * 비밀번호 변경
-	 * @return
-	 */
-	@GetMapping("/pw")
-	public String changePwForm() {
-		return "members/changeForm";
-	}
-	
-	/**
-	 * 비밀번호 변경 처리
-	 * @return
-	 */
-	@PatchMapping("/pw")
-	public String changePw() {
-		return "redirect:/members/mypage";
-	}
-	
+
 	/**
 	 * 회원 탈퇴 양식
 	 */
@@ -216,5 +199,44 @@ public class MemberController {
 	public String listAll() {
 		log.info("회원목록 호출됨");
 		return "members/list";
+	}
+	
+	//비밀번호 변경 화면
+	@GetMapping("/pw")
+	public String changePwForm(Model model) {
+		model.addAttribute("changePwForm", new ChangePwForm());
+		
+		return "mypage/changePwForm";
+	}
+	
+	//비밀번호 변경 처리
+	@PatchMapping("/pw")
+	public String changePw(@Valid @ModelAttribute ChangePwForm changePwForm, BindingResult bindingResult, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession(false);
+		if(session == null) return "redirect:/";
+		
+		//변경할 비밀번호 체크
+		if(!changePwForm.getPostPw().equals(changePwForm.getPostPwChk())) {
+			bindingResult.reject("error.member.changePw", "변경할 비밀번호가 일치하지 않습니다");
+		}
+		//변경할 비밀번호가 이전 비밀번호와 동일한지 체크
+		if(changePwForm.getPrePw().equals(changePwForm.getPostPw())) {
+			bindingResult.reject("error.member.changePw", "이전 비밀번호와 동일합니다");
+		}
+		
+		if(bindingResult.hasErrors()) {
+			return "mypage/changePwForm";
+		}
+		
+		LoginMember loginMember = (LoginMember) session.getAttribute("loginMember");
+		boolean result = memberSVC.changePw(loginMember.getEmail(), changePwForm.getPrePw(), changePwForm.getPostPw());
+		if(result) {
+			session.invalidate();
+			return"redirect:/login";
+		}
+		bindingResult.reject("error.member.changePw", "비밀번호 변경 실패");
+		
+		return "redirect:/members/pw";
 	}
 }

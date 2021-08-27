@@ -12,4 +12,4 @@ ul 	{list-style: none; padding:0; margin:0;}
 a 	{text-decoration: none; color:inherit;}
 img {max-width: 100%;	vertical-align: top;}
 
-.field-msg {color:#f00; font-weight:bold;}
+.field-msg {color:#f00; font-weight:bold; font-size:0.8em;}

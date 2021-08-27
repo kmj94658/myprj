@@ -4,9 +4,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.kh.myprj.web.ApiMemberController;
 import com.kh.myprj.web.api.JsonResult;
 
-@RestControllerAdvice //모든 컨트롤러의 예외처리에 대응한다
+@RestControllerAdvice(assignableTypes = ApiMemberController.class) //모든 컨트롤러의 예외처리에 대응한다(ControllerAdvice + ResponseBody)
 public class ApiGlobalExceptionHandler {
 
 	@ExceptionHandler(EmptyResultDataAccessException.class)
