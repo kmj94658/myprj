@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,19 @@ public class ApiMemberController {
 	
 	private final MemberSVC memberSVC;
 	
+	//회원가입시 이메일 중복체크
+	@GetMapping("/email/dupChk")
+	public JsonResult<String> dupChkEmail(@RequestParam String email) {
+		
+		JsonResult<String> result = null;
+		if(memberSVC.isExistEmail(email)) {
+			result = new JsonResult<String> ("00","ok", email);
+		}else {
+			result = new JsonResult<String> ("01","nok", null);
+		}
+		return result;
+	}
+	
 	//이메일 찾기
 	@PostMapping("/email")
 	//@ResponseBody restController로 대신 사용가능
@@ -46,7 +60,7 @@ public class ApiMemberController {
 	}
 	
 	//비밀번호 찾기
-	@GetMapping("/pw")
+	@PostMapping("/pw")
 	public Object findPw(@Valid @RequestBody FindPwReq findPwReq, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {

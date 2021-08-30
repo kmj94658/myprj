@@ -79,25 +79,7 @@
     </div>
     <div>
     	<div class="inner gnb-inner">
-    		<nav>
-    			<ul class="depth1">
-            <li class="item">
-              <a href="#" th:text="#{mypage.menu.depth1.order1}">menu1</a>
-              <ul class="depth2">
-                <li class="item">
-                	<a href="#" th:href="@{|/members/edit|}" th:text="#{mypage.menu.depth2.order1}">menu-1</a>
-                </li>
-                <li class="item">
-               		<a href="#" th:text="#{mypage.menu.depth2.order2}">menu-2</a>
-               	</li>
-                <li class="item">
-                	<a href="#" th:text="#{mypage.menu.depth2.order3}">menu-2</a>
-                </li>
-              </ul>
-            </li>
-            
-          </ul>
-    		</nav>
+    		<nav th:replace="~{fragment/gnb/menu::myinfo}"></nav>
     	</div>
     </div>
     <div class="main">

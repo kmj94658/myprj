@@ -1,0 +1,810 @@
+DEBUG 21-08-27 15:09:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:09:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [DispatcherServlet:91] - PATCH "/members/pw", parameters={masked}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [RequestMappingHandlerMapping:522] - Mapped to com.kh.myprj.web.MemberController#changePw(ChangePwForm, BindingResult, HttpServletRequest)
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:711] - Executing prepared SQL query
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:643] - Executing prepared SQL statement [select code,decode from code where pcode = ?]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [DataSourceUtils:115] - Fetching JDBC Connection from DataSource
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqlonly:223] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A03'
+
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A03'
+ {executed in 1 msec}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'CODE' to property 'code' of type 'java.lang.String'
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'DECODE' to property 'decode' of type 'java.lang.String'
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [resultsettable:610] - 
+|------|-------|
+|code  |decode |
+|------|-------|
+|A0301 |서울     |
+|A0302 |부산     |
+|A0303 |울산     |
+|------|-------|
+
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [MemberController:57] - code-region:[Code(code=A0301, decode=서울), Code(code=A0302, decode=부산), Code(code=A0303, decode=울산)]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:711] - Executing prepared SQL query
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:643] - Executing prepared SQL statement [select code,decode from code where pcode = ?]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [DataSourceUtils:115] - Fetching JDBC Connection from DataSource
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqlonly:223] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A01'
+
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A01'
+ {executed in 0 msec}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'CODE' to property 'code' of type 'java.lang.String'
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'DECODE' to property 'decode' of type 'java.lang.String'
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [resultsettable:610] - 
+|------|-------|
+|code  |decode |
+|------|-------|
+|A0101 |수영     |
+|A0102 |골프     |
+|A0103 |영화     |
+|------|-------|
+
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [MemberController:45] - code-hobby:[Code(code=A0101, decode=수영), Code(code=A0102, decode=골프), Code(code=A0103, decode=영화)]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:711] - Executing prepared SQL query
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [JdbcTemplate:643] - Executing prepared SQL statement [select code,decode from code where pcode = ?]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [DataSourceUtils:115] - Fetching JDBC Connection from DataSource
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqlonly:223] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A02'
+
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [sqltiming:368] -  com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+441. select code,decode from code where pcode = 'A02'
+ {executed in 0 msec}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'CODE' to property 'code' of type 'java.lang.String'
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [BeanPropertyRowMapper:314] - Mapping column 'DECODE' to property 'decode' of type 'java.lang.String'
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [resultsettable:610] - 
+|------|-------|
+|code  |decode |
+|------|-------|
+|A0201 |남      |
+|A0202 |여      |
+|------|-------|
+
+INFO  21-08-27 15:09:31[http-nio-9080-exec-7] [MemberController:51] - code-gender:[Code(code=A0201, decode=남), Code(code=A0202, decode=여)]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [ContentNegotiatingViewResolver:349] - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-7] [DispatcherServlet:1131] - Completed 200 OK
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-2] [DispatcherServlet:91] - GET "/css/normalize.css", parameters={}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-2] [SimpleUrlHandlerMapping:522] - Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-2] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-2] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-2] [DispatcherServlet:1131] - Completed 200 OK
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-1] [DispatcherServlet:91] - GET "/css/common.css", parameters={}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-1] [SimpleUrlHandlerMapping:522] - Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-1] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-3] [DispatcherServlet:91] - GET "/css/frame/main.css", parameters={}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-3] [SimpleUrlHandlerMapping:522] - Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-3] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-1] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-1] [DispatcherServlet:1131] - Completed 200 OK
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-3] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-3] [DispatcherServlet:1131] - Completed 200 OK
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [DispatcherServlet:91] - GET "/css/xxx.css", parameters={}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [SimpleUrlHandlerMapping:522] - Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [ResourceHttpRequestHandler:525] - Resource not found
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [DispatcherServlet:1131] - Completed 404 NOT_FOUND
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [DispatcherServlet:91] - "ERROR" dispatch for GET "/error", parameters={}
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [RequestMappingHandlerMapping:522] - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [OpenEntityManagerInViewInterceptor:86] - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [HttpEntityMethodProcessor:268] - Using 'application/json;q=0.1', given [text/css, */*;q=0.1] and supported [application/json, application/*+json, application/json, application/*+json]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [HttpEntityMethodProcessor:91] - Writing [{timestamp=Fri Aug 27 15:09:31 KST 2021, status=404, error=Not Found, message=No message available,  (truncated)...]
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [OpenEntityManagerInViewInterceptor:111] - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+DEBUG 21-08-27 15:09:31[http-nio-9080-exec-8] [DispatcherServlet:1127] - Exiting from "ERROR" dispatch, status 404
+DEBUG 21-08-27 15:09:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:09:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:10:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:10:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:10:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:10:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:11:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:11:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:11:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:11:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:12:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:12:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:12:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:12:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:13:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:13:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:13:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:13:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:14:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:14:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:14:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:14:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:15:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:15:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:15:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:15:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:15:55[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@26fe720e: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:15:55[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4de21823
+DEBUG 21-08-27 15:15:56[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12f4b131: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:15:56[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@70b3da59
+DEBUG 21-08-27 15:16:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:16:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:16:10[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@459102c4: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:10[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@409d15e
+DEBUG 21-08-27 15:16:11[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4c591120: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:11[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2e6f99a3
+DEBUG 21-08-27 15:16:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58654e4d: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:27[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79b71990
+DEBUG 21-08-27 15:16:30[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4b5391fb: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:30[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58a20fc2
+DEBUG 21-08-27 15:16:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:16:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:16:34[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13eae330: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:34[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@b32e1e8
+DEBUG 21-08-27 15:16:35[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@66118bf2: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:35[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@d5947bf
+DEBUG 21-08-27 15:16:42[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1ffdfb37: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:42[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@29f95e60
+DEBUG 21-08-27 15:16:51[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@40b0cf16: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:16:51[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@bafa949
+DEBUG 21-08-27 15:17:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:17:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:17:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:17:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:18:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:18:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:18:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:18:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:19:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:19:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:19:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:19:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:20:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:20:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:20:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:20:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:21:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:21:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:21:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:21:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:22:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:22:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:22:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:22:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:23:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:23:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:23:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:23:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:24:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:24:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:24:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:24:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:25:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:25:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:25:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:25:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:26:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:26:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:26:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:26:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:27:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:27:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:27:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:27:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:28:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:28:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:28:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:28:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:29:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:29:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:29:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:29:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:30:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:30:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:30:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:30:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:31:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:31:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:31:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:31:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:32:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:32:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:32:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:32:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:33:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:33:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:33:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:33:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:34:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:34:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:34:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:34:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:35:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:35:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:35:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:35:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:36:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:36:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:36:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:36:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:37:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:37:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:37:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:37:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:38:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:38:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:38:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:38:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:39:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:39:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:39:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:39:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:40:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:40:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:40:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:40:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:41:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:41:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:41:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:41:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:42:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:42:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:42:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:42:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:43:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:43:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:43:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:43:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:44:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:44:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:44:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:44:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:45:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:45:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:45:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:45:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:45:39[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@70b3da59: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:45:39[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@59bb3784
+DEBUG 21-08-27 15:45:45[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4de21823: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:45:45[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63392251
+DEBUG 21-08-27 15:45:57[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@409d15e: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:45:57[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@493079c
+DEBUG 21-08-27 15:45:58[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2e6f99a3: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:45:58[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@788fbfb9
+DEBUG 21-08-27 15:46:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:46:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:46:13[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@d5947bf: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:13[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1914a0ab
+DEBUG 21-08-27 15:46:13[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@b32e1e8: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:14[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4596be05
+DEBUG 21-08-27 15:46:16[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@29f95e60: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:16[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2e049764
+DEBUG 21-08-27 15:46:18[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58a20fc2: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:18[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@68cb0b66
+DEBUG 21-08-27 15:46:19[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79b71990: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:19[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7c858aa4
+DEBUG 21-08-27 15:46:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:46:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:46:34[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@bafa949: (connection has passed maxLifetime)
+DEBUG 21-08-27 15:46:35[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6fbd1657
+DEBUG 21-08-27 15:47:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:47:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:47:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:47:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:48:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:48:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:48:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:48:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:49:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:49:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:49:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:49:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:50:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:50:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:50:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:50:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:51:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:51:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:51:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:51:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:52:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:52:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:52:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:52:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:53:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:53:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:53:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:53:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:54:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:54:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:54:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:54:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:55:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:55:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:55:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:55:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:56:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:56:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:56:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:56:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:57:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:57:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:57:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:57:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:58:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:58:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:58:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:58:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:59:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:59:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 15:59:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 15:59:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:00:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:00:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:00:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:00:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:01:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:01:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:01:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:01:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:02:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:02:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:02:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:02:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:03:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:03:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:03:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:03:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:04:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:04:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:04:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:04:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:05:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:05:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:05:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:05:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:06:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:06:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:06:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:06:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:07:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:07:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:07:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:07:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:08:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:08:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:08:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:08:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:09:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:09:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:09:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:09:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:10:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:10:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:10:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:10:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:11:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:11:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:11:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:11:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:12:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:12:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:12:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:12:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:13:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:13:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:13:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:13:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:14:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:14:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:14:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:14:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:15:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:15:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:15:20[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63392251: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:20[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@414e7674
+DEBUG 21-08-27 16:15:23[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@493079c: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:23[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@132eb0fc
+DEBUG 21-08-27 16:15:31[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@59bb3784: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:31[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2614f923
+DEBUG 21-08-27 16:15:32[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@788fbfb9: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:32[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@47e73252
+DEBUG 21-08-27 16:15:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:15:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:15:49[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7c858aa4: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:49[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@572e76d2
+DEBUG 21-08-27 16:15:53[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4596be05: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:53[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13bde5de
+DEBUG 21-08-27 16:15:58[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1914a0ab: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:15:58[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@24f61148
+DEBUG 21-08-27 16:16:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:16:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:16:03[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@68cb0b66: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:16:03[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@50b1c908
+DEBUG 21-08-27 16:16:04[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2e049764: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:16:04[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1592c2f3
+DEBUG 21-08-27 16:16:08[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6fbd1657: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:16:08[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@596dae74
+DEBUG 21-08-27 16:16:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:16:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:17:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:17:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:17:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:17:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:18:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:18:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:18:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:18:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:19:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:19:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:19:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:19:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:20:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:20:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:20:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:20:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:21:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:21:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:21:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:21:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:22:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:22:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:22:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:22:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:23:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:23:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:23:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:23:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:24:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:24:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:24:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:24:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:25:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:25:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:25:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:25:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:26:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:26:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:26:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:26:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:27:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:27:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:27:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:27:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:28:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:28:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:28:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:28:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:29:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:29:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:29:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:29:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:30:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:30:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:30:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:30:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:31:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:31:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:31:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:31:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:32:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:32:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:32:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:32:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:33:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:33:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:33:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:33:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:34:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:34:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:34:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:34:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:35:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:35:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:35:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:35:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:36:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:36:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:36:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:36:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:37:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:37:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:37:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:37:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:38:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:38:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:38:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:38:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:39:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:39:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:39:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:39:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:40:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:40:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:40:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:40:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:41:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:41:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:41:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:41:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:42:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:42:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:42:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:42:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:43:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:43:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:43:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:43:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:44:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:44:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:44:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:44:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:44:56[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2614f923: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:44:56[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48167deb
+DEBUG 21-08-27 16:44:59[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@414e7674: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:44:59[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@53bb541d
+DEBUG 21-08-27 16:45:02[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@132eb0fc: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:02[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@412de6b9
+DEBUG 21-08-27 16:45:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:45:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:45:06[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@572e76d2: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:06[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@20b2ab76
+DEBUG 21-08-27 16:45:15[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@47e73252: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:15[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7c6ffd48
+DEBUG 21-08-27 16:45:18[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@13bde5de: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:19[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1fc6290a
+DEBUG 21-08-27 16:45:20[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1592c2f3: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:20[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2ae27274
+DEBUG 21-08-27 16:45:29[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@596dae74: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:29[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@29ef62c5
+DEBUG 21-08-27 16:45:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:45:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:45:45[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@50b1c908: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:45[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3f40d15c
+DEBUG 21-08-27 16:45:49[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@24f61148: (connection has passed maxLifetime)
+DEBUG 21-08-27 16:45:49[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@669cc9ad
+DEBUG 21-08-27 16:46:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:46:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:46:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:46:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:47:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:47:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:47:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:47:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:48:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:48:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:48:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:48:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:49:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:49:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:49:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:49:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:50:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:50:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:50:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:50:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:51:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:51:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:51:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:51:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:52:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:52:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:52:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:52:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:53:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:53:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:53:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:53:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:54:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:54:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:54:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:54:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:55:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:55:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:55:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:55:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:56:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:56:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:56:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:56:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:57:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:57:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:57:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:57:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:58:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:58:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:58:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:58:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:59:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:59:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 16:59:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 16:59:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:00:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:00:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:00:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:00:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:01:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:01:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:01:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:01:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:02:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:02:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:02:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:02:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:03:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:03:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:03:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:03:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:04:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:04:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:04:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:04:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:05:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:05:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:05:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:05:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:06:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:06:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:06:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:06:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:07:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:07:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:07:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:07:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:08:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:08:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:08:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:08:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:09:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:09:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:09:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:09:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:10:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:10:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:10:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:10:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:11:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:11:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:11:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:11:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:12:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:12:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:12:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:12:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:13:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:13:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:13:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:13:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:14:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:14:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:14:21[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@412de6b9: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:21[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7109f1a3
+DEBUG 21-08-27 17:14:26[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48167deb: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:26[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2f1c7645
+DEBUG 21-08-27 17:14:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:14:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:14:37[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1fc6290a: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:37[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5683d63a
+DEBUG 21-08-27 17:14:45[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2ae27274: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:45[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1bb406ab
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@53bb541d: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@40a12e05
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection adder] [HikariPool:421] - HikariPool-41 - After adding stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7c6ffd48: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@123d35d3
+DEBUG 21-08-27 17:14:47[HikariPool-41 connection adder] [HikariPool:421] - HikariPool-41 - After adding stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:14:50[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@20b2ab76: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:14:50[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c2e8d43
+DEBUG 21-08-27 17:14:50[HikariPool-41 connection adder] [HikariPool:421] - HikariPool-41 - After adding stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:15:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:15:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:15:09[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@29ef62c5: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:15:09[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@291d30f3
+DEBUG 21-08-27 17:15:12[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@669cc9ad: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:15:12[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@968fcca
+DEBUG 21-08-27 17:15:14[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3f40d15c: (connection has passed maxLifetime)
+DEBUG 21-08-27 17:15:14[HikariPool-41 connection adder] [HikariPool:729] - HikariPool-41 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5cac391a
+DEBUG 21-08-27 17:15:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:15:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:16:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:16:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:16:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:16:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:17:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:17:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:17:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:17:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:18:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:18:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:18:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:18:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:19:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:19:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:19:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:19:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:20:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:20:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:20:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:20:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:21:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:21:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:21:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:21:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:22:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:22:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:22:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:22:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:23:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:23:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:23:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:23:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:24:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:24:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:24:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:24:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:25:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:25:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:25:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:25:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:26:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:26:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:26:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:26:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:27:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:27:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:27:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:27:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:28:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:28:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:28:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:28:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:29:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:29:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:29:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:29:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:30:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:30:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:30:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:30:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:31:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:31:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:31:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:31:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:32:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:32:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:32:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:32:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:33:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:33:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:33:32[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:33:32[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+DEBUG 21-08-27 17:34:02[HikariPool-41 housekeeper] [HikariPool:421] - HikariPool-41 - Pool stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:34:02[HikariPool-41 housekeeper] [HikariPool:518] - HikariPool-41 - Fill pool skipped, pool is at sufficient level.
+INFO  21-08-27 17:34:26[RMI TCP Connection(530)-127.0.0.1] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:159] - Application shutdown requested.
+DEBUG 21-08-27 17:34:26[RMI TCP Connection(530)-127.0.0.1] [ApplicationAvailabilityBean:77] - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+DEBUG 21-08-27 17:34:26[RMI TCP Connection(530)-127.0.0.1] [AnnotationConfigServletWebServerApplicationContext:1049] - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3e3a631d, started on Fri Aug 27 14:17:01 KST 2021
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483647
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [DefaultLifecycleProcessor:238] - Bean 'webServerGracefulShutdown' completed its stop procedure
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483646
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [DefaultLifecycleProcessor:238] - Bean 'webServerStartStop' completed its stop procedure
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [AnnotationMBeanExporter:452] - Unregistering JMX-exposed beans on shutdown
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [AnnotationMBeanExporter:186] - Unregistering JMX-exposed beans
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [ThreadPoolTaskExecutor:218] - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [LocalContainerEntityManagerFactoryBean:651] - Closing JPA EntityManagerFactory for persistence unit 'default'
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [SessionFactoryImpl:792] - HHH000031: Closing
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [TypeConfiguration$Scope:350] - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@65458b57] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@2e2ab854]
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [AbstractServiceRegistryImpl:419] - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [BootstrapServiceRegistryImpl:295] - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+INFO  21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [HikariDataSource:350] - HikariPool-41 - Shutdown initiated...
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [HikariPool:421] - HikariPool-41 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7109f1a3: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2f1c7645: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5683d63a: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1bb406ab: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@40a12e05: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@123d35d3: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@c2e8d43: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@291d30f3: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@968fcca: (connection evicted)
+DEBUG 21-08-27 17:34:27[HikariPool-41 connection closer] [PoolBase:134] - HikariPool-41 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5cac391a: (connection evicted)
+DEBUG 21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [HikariPool:421] - HikariPool-41 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  21-08-27 17:34:27[RMI TCP Connection(530)-127.0.0.1] [HikariDataSource:352] - HikariPool-41 - Shutdown completed.

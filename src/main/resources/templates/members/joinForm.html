@@ -4,10 +4,10 @@
       th:replace="~{fragment/main::copyParam(
       	~{::title}, <!--/* title 		대체 */-->
       	~{::link},	<!--/* links 		추가 */-->
-      	~{},				<!--/* scripts 	생략 */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
       	~{::style},				<!--/* style */-->
       	~{},				<!--/* header */-->
-      	_,					<!--/* nav */ 기본값 사용 */-->       	
+      	~{::nav},					<!--/* nav */ 기본값 사용 */-->       	
       	~{::main},  <!--/* main 		대체 */-->
       	_					<!--/* footer */ 기본값 사용 */--> 
       )}">
@@ -19,7 +19,54 @@
   <title>회원가입</title>
   
   <link rel="stylesheet" href="/css/member/joinForm.css" />
-  <script src="/js/xxx.js" defer></script>
+  <script src="/js/common/ajaxCall.js" defer></script>
+  <script>
+  
+  	const success_f = (res) => {
+  		if(res.rtcd == '00') {
+  			errmsg.textContent = '동일한 이메일이 존재합니다';
+  		}else {
+  			errmsg.textContent = '사용가능한 이메일입니다';
+  			email.readOnly = 'readOnly';
+  			joinBtn.removeAttribute('disabled'); //속성 제거
+  			dupChk.setAttribute('disabled','disabled'); //속성추가
+  		}
+  	}
+  	
+  	const error_f = err => {
+  		console.log(err);
+  	}
+  	
+  	const dupChk_f = e => {
+  		console.log("버튼 클릭됨");
+  		if(email.value.trim().length == 0) {
+  			email.focus();
+  			email.select();
+  			errmsg.textContent = '이메일을 입력하세요';
+  			return false;
+  		}
+  		//이메일 유효성 체크
+  		const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  		if(!email.value.match(regExp)){
+  			errmsg.textContent = '이메일 형식과 맞지 않습니다';
+  			return false;
+  		} 
+  		
+  		//ajax call
+  		const url = "/api/members/email/dupChk?"+"email="+email.value;
+  		console.log(url);
+  		request.get(url)
+  					 .then(res=>res.json())
+  					 .then(res=>success_f(res))
+  					 .catch(err=>err_f(err))
+  	}
+  
+  	const init = e => {
+  		dupChk.addEventListener("click", dupChk_f);
+  		joinBtn.disabled = 'disabled';
+  	}
+  	window.addEventListener("DOMContentLoaded", init);
+  </script>
   <style>
   	.global-wrap .inner.main-inner main{
   		display:flex;
@@ -39,18 +86,27 @@
         <header>헤더</header>
       </div>
     </div>
+    <div class="gnb">
+    	<div class="inner gnb-inner">
+    		<nav th:replace="~{fragment/gnb/menu :: global}"></nav>
+    	</div>
+    </div> 
     <div class="main">
       <div class="inner main-inner">
       	<main>
 					<form class="frm" th:action="@{/members/join}" th:method="post" th:object="${joinForm}" >
 						<ul>
 							<li><h3 class="title">회원 가입</h3></li>
+							<li><p id="errmsg" class="field-msg"></p></li>
 							<li th:errors="*{global}" th:errorclass="field-msg">
 								<p th:each="err : ${#fields.globalErrors()}"
 																			 th:text="${err}">글로벌 오류 메시지</p> <!-- p태그가 반복문 만큼 만들어진다 -->     				
       				</li>
 							<li><label for="email">아이디</label></li>
-							<li><input type="text" th:field="*{email}"/></li>
+							<li>
+								<input type="text" th:field="*{email}"/>
+								<button type="button" id="dupChk">중복체크</button>
+							</li>
 							<li th:errors="*{email}" th:errorclass="field-msg"></li>
 							<li><label for="pw">비밀번호</label></li>
 							<li><input type="password" th:field="*{pw}"/></li>

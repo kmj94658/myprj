@@ -149,18 +149,30 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 	
-	//id로 삭제
+	//id로 회원 삭제
 	@Override
 	public void delete(long id) {
 		String sql = "delete from member where id = ? ";
 		jt.update(sql, id);
 	}
 	
-	//이메일로 삭제
+	//이메일로 회원 삭제
 	@Override
 	public void delete(String email) {
 		String sql = "delete from member where email = ? ";
 		jt.update(sql, email);
+	}
+	
+	//회원 탈퇴
+	@Override
+	public void outMember(String email, String pw) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("update member ");
+		sql.append(" set status = 'D' ");
+		sql.append(" where email = ? ");
+		sql.append(" and pw = ? ");
+		jt.update(sql.toString(), email, pw);
+		
 	}
 	
 	//취미 추가
@@ -218,6 +230,7 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.append("select count(email) from member ");
 		sql.append("where email = ? ");
 		sql.append(" 	and pw = ? ");
+		sql.append("	and status is null ");
 		
 		Integer cnt = jt.queryForObject(sql.toString(), Integer.class, email, pw);
 		if(cnt == 1) isLogin = true;

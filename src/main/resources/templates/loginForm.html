@@ -7,7 +7,7 @@
       	~{},				<!--/* scripts 	생략 */-->
       	~{::style},				<!--/* style */-->
       	~{},				<!--/* header */-->
-      	_,					<!--/* nav */ 기본값 사용 */--> 
+      	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
       	~{::main},  <!--/* main 		대체 */-->
       	_  					<!--/* footer */ 기본값 사용 */--> 
       )}">
@@ -58,6 +58,11 @@
         <header>헤더</header>
       </div>
     </div>
+    <div class="gnb">
+    	<div class="inner gnb-inner">
+    		<nav th:replace="~{fragment/gnb/menu :: global}"></nav>
+    	</div>
+    </div> 
     <div class="main">
       <div class="inner main-inner">
       	<main>

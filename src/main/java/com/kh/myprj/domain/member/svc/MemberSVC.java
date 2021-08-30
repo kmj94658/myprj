@@ -63,6 +63,12 @@ public interface MemberSVC {
 	void delete(String email);
 	
 	/**
+	 * 탈퇴
+	 * @param email
+	 */
+	void outMember(String email, String pw);
+	
+	/**
 	 * 이메일 찾기
 	 * @param tel
 	 * @param birth
