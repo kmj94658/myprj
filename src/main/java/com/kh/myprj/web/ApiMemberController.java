@@ -61,10 +61,10 @@ public class ApiMemberController {
 	
 	//비밀번호 찾기
 	@PostMapping("/pw")
-	public Object findPw(@Valid @RequestBody FindPwReq findPwReq, BindingResult bindingResult) {
+	public JsonResult<String> findPw(@Valid @RequestBody FindPwReq findPwReq, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
-			return bindingResult;
+			return null;
 		}
 		
 		String findedPw = memberSVC.findPw(findPwReq.getEmail(), findPwReq.getTel(), findPwReq.getBirth());

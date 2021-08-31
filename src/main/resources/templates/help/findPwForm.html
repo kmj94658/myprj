@@ -4,10 +4,10 @@
       th:replace="~{fragment/main::copyParam(
       	~{::title},	<!--/* title 		대체 */-->
       	~{::link},	<!--/* links 		추가 */-->
-      	~{},				<!--/* scripts 	생략 */-->
-      	~{::style},	<!--/* style */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
+      	~{::style},				<!--/* style */-->
       	~{},				<!--/* header */-->
-      	~{::nav},		<!--/* nav */ 기본값 사용 */--> 
+      	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
       	~{::main},  <!--/* main 		대체 */-->
       	_  					<!--/* footer */ 기본값 사용 */--> 
       )}">
@@ -16,11 +16,78 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Help</title>
+  <title>HELP</title>
   
- <link rel="stylesheet" href="/css/xxx.css" th:href="@{/css/help/help.css}"/>
-  <script src="/js/xxx.js" defer></script>
+  <link rel="stylesheet" href="/css/xxx.css" th:href="@{/css/help/help.css}" />
+  <script src="/js/common/ajaxCall.js" defer></script>
+  <script>
+	 
+  	const init = e => {
+
+	  	const $findBtn = document.getElementById("findBtn");
+	  	$findBtn.addEventListener("click",e=> {
+	      console.log("click");
+	      //클라이언트 레벨 유효성 체크(값을 입력 했는지)
+	      if(email.value.trim().length == 0) {
+	    	  //email.textContent = '이메일을 입력하세요'
+	    	  email.focus();
+	    	  email.select();
+	    	  return;
+	      }
+	      if(tel.value.trim().length == 0) {
+	    	  //email.textContent = "전화번호를 입력하세요";
+	    	  tel.focus();
+	    	  tel.select();
+	    	  return;
+	      }
+	      if(birth.value.trim().length == 0) {
+	    	  //email.textContent = "생년월일을 입력하세요";
+	    	  birth.focus();
+	    	  birth.select();
+	    	  return;
+	      }
+	    });
+  	};
+  	window.addEventListener("DOMContentLoaded", init);
+  </script>
   <style>
+    .box1 {
+      width: 250px;
+      margin: 100px auto;
+      border: 1px solid #ccc;
+      border-radius: 5%;
+      padding: 10px;
+    }
+    .box1 dl {
+      display: grid;
+      grid-template-columns: 70px 3fr;
+      gap: 5px;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .box1 dd {
+      margin-left: 0;
+    }
+    .box1 dd input{
+    	width:150px;
+    }
+    .box1 h3 {
+      text-align: center;
+    }
+    .box1 button{
+      width: 100%;
+      background-color: #0031ca; color: #fff;
+      font-weight: bold;
+      border: none; outline: none;
+      padding: 5px;
+    }
+    .box1 button:hover {
+      background-color: #3d5afe;
+      cursor: pointer;
+    }
+    .box1 .hidden {
+      display: none;
+    }
   </style>
   
 </head>
@@ -32,13 +99,39 @@
       </div>
     </div>
     <div class="gnb">
-      <div class="inner gnb-inner">
-        <nav th:replace="~{fragment/gnb/menu :: help}"></nav>
-      </div>
-    </div>      
+    	<div class="inner gnb-inner">
+    		<nav th:replace="~{fragment/gnb/menu::help}">메뉴</nav>
+    	</div>
+    </div>
     <div class="main">
       <div class="inner main-inner">
-      	<main>비밀번호찾기</main>
+      	<main>
+      		<div class="box1">
+				    <h3>비밀번호 찾기</h3>
+				    <form th:action="@{/help/findPw}" th:method="PUT" th:object="${findPwForm}">
+				    	<p th:if="${info}" th:text="${info}"></p>
+				    	<th:block th:errors="*{global}" th:errorclass="field-msg">
+								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지</p>     				
+      				</th:block>
+					    <dl>
+					    	<dt><label for="email">아이디</label></dt>
+					      <dd><input type="email" th:field="*{email}" placeholder="test@test.com"></dd>
+					    </dl>
+					    <p th:errors="*{email}" th:errorclass="field-msg"></p>
+					    <dl>
+					      <dt><label for="tel">전화번호</label></dt>
+					      <dd><input type="tel" th:field="*{tel}" placeholder="010-1234-5678"></dd>
+					    </dl>
+					    <p th:errors="*{tel}" th:errorclass="field-msg"></p>
+					    <dl>
+					      <dt><label for="birth">생년월일</label></dt>
+					      <dd><input type="date" th:field="*{birth}"></dd>
+					    </dl>
+					    <p th:errors="*{birth}" th:errorclass="field-msg"></p>
+				    <button type="submit" id="findBtn">비밀번호 찾기</button>
+				    </form>
+				  </div>
+      	</main>
       </div>
     </div>
     <div class="foot">
@@ -47,5 +140,6 @@
       </div>
     </div>    
   </div>
+  
 </body>
 </html>
