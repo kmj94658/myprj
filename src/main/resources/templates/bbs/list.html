@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko" 
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/main::copyParam(
+      	~{::title},	<!--/* title 		대체 */-->
+      	~{::link},	<!--/* links 		추가 */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
+      	~{::style},				<!--/* style */-->
+      	~{},				<!--/* header */-->
+      	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
+      	~{::main},  <!--/* main 		대체 */-->
+      	_  					<!--/* footer */ 기본값 사용 */--> 
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>커뮤니티</title>
+  
+  <link rel="stylesheet" href="/css/xxx.css" />
+  <script src="/js/xxx.js" defer></script>
+  
+  <style>
+    .wrap {
+      display: flex;
+      justify-content: center;
+      margin: 25px 0;
+    }
+    .wrap .table {
+      width: 80%;
+    }
+    .wrap .table th, td {
+      text-align: center;
+    }
+    .wrap .table td:last-child {
+      text-align: right;
+    }
+    .wrap .bbs-title {
+      text-align: center;
+    }
+  </style>
+  <script>
+  	window.addEventListener("DOMContentLoaded", init);
+  	//호이스팅으로 인해 함수정의 위치는 상관없음
+  	function init(e) {
+  		writeBtn.addEventListener("click", e=>{
+  			location.href='/bbs/'; //이렇게 쓰면 get방식으로 요청
+  		})
+  	}
+  </script>
+  
+</head>
+<body>
+  <div class="global-wrap">
+    <div class="hdr">
+      <div class="inner hdr-inner">
+        <header>헤더</header>
+      </div>
+    </div>
+    <div>
+    	<div class="inner gnb-inner">
+    		<nav th:replace="~{fragment/gnb/menu::global}">메뉴</nav>
+    	</div>
+    </div>
+    <div class="main">
+      <div class="inner main-inner">
+      	<main>
+      		 <div class="wrap">
+				    <table class="table table-hover table-bordered caption-top">
+				      <caption class="bbs-title"><h3>게시글 목록</h3></caption>
+				      <thead>
+				        <tr class="table-secondary">
+				          <th scope="col">번호</th>
+				          <th scope="col">제목</th>
+				          <th scope="col">작성자</th>
+				          <th scope="col">작성일</th>
+				          <th scope="col">조회</th>
+				        </tr>
+				      </thead>
+				      <tbody>
+				        <tr>
+				          <th scope="row">1</th>
+				          <td>반갑습니다</td>
+				          <td>홍길동</td>
+				          <td>2021-09-01</td>
+				          <td>10</td>
+				        </tr>
+				      </tbody>
+				    </table>
+				  </div>
+				  <div class="wrap"><button type="button" id="writeBtn" class="btn btn-primary">글작성</button></div>
+      	</main>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="inner foot-inner">
+        <footer>푸터</footer>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>
