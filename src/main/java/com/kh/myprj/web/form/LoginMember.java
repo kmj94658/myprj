@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class LoginMember {
-	private long id;				//서버 내부적으로 관리용 아이디
+	private Long id;				//서버 내부적으로 관리용 아이디
 	private String email;			//회원 아이디
 	private String nickname;
 	private String role;

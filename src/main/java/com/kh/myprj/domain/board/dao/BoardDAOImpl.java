@@ -232,7 +232,7 @@ public class BoardDAOImpl implements BoardDAO {
 		if(jt.update(sql.toString(),bnum) != 1) {
 			throw new IllegalArgumentException(bnum + "번 게시글을 찾을 수 없습니다.");
 		};
-		
+
 	}
 
 }

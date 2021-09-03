@@ -4,7 +4,7 @@
       th:replace="~{fragment/main::copyParam(
       	~{::title},	<!--/* title 		대체 */-->
       	~{::link},	<!--/* links 		추가 */-->
-      	~{},				<!--/* scripts 	생략 */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
       	~{::style},				<!--/* style */-->
       	~{},				<!--/* header */-->
       	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
@@ -19,7 +19,7 @@
   <title>게시글 작성</title>
   
   <link rel="stylesheet" href="/css/xxx.css" />
-  <script src="/js/xxx.js" defer></script>
+  <script src="/js/bbs/writeForm.js" defer></script>
   
   <style>
     .wrap #writeForm{
@@ -48,35 +48,45 @@
       <div class="inner main-inner">
       	<main>
       		<div class="wrap">
-				    <form action="" class="row gx-3 gy-2 align-items-center" id="writeForm">
+				    <form th:action="@{/bbs/}" th:method="post" th:object="${writeForm}" class="row gx-3 gy-2 align-items-center" id="writeForm">
+				      <input type="hidden" th:field="*{bid}" />
+				      <input type="hidden" th:field="*{bemail}" />
+				      <input type="hidden" th:field="*{bnickname}" />
 				      <p class="fs-3 text-center">게시글 작성</p>
+				      <div class="row mb-3" th:errors="*{global}" th:errorclass="field-msg">
+				      	<label class="col-sm-2 col-form-label text-center"></label>
+				      	<div class="col-sm-10" th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류</div>
+				      </div>
 				      <div class="row mb-3">
 				        <label for="colFormLabel" class="col-sm-2 col-form-label text-center">분류</label>
 				        <div class="col-sm-10">
-				          <select class="form-select" aria-label="Default select example">
-				            <option selected>==선택==</option>
-				            <option value="1">자유게시판</option>
-				            <option value="2">Q&A</option>
-				            <option value="3">Three</option>
+				          <select class="form-select" id="category" th:field="*{bcategory}" aria-label="Default select example">
+				            <option value="" selected>==선택==</option>
+				            <option th:each="item : ${category}" th:value="${item.code}" th:text="${item.decode}">자유게시판</option>
 				          </select>
+				          <div th:errors="*{bcategory}" th:errorclass="field-msg"></div>
 				        </div>
 				      </div>
 				      <div class="row mb-3">
 				        <label for="title" class="col-sm-2 col-form-label text-center">제목</label>
 				        <div class="col-sm-10">
-				          <input type="text" class="form-control" id="title">
+				          <input type="text" class="form-control" id="title" th:field="*{btitle}">
+				          <div th:errors="*{btitle}" th:errorclass="field-msg"></div>
 				        </div>
 				      </div>
 				      <div class="row mb-3">
 				        <label for="nickname" class="col-sm-2 col-form-label text-center">작성자</label>
 				        <div class="col-sm-10">
-				          <input type="text" class="form-control" id="nickname">
+				        	<p th:text="|*{bnickname}(*{bemail})|"></p>
+				          <!-- <input type="text" class="form-control" id="nickname" th:field="*{bnickname}" readonly>
+				          <div th:errors="*{bnickname}" th:errorclas="field=msg"></div> -->
 				        </div>
 				      </div>
 				      <div class="row mb-3">
 				        <label for="content" class="col-sm-2 col-form-label text-center">내용</label>
 				        <div class="col-sm-10">
-				          <textarea class="form-control" aria-label="With textarea" rows="10"></textarea>
+				          <textarea class="form-control" aria-label="With textarea" rows="10" th:field="*{bcontent}"></textarea>
+				          <div th:errors="*{bcontent}" th:errorclass="field-msg"></div>
 				        </div>
 				      </div>
 				      <div class="row mb-3">
@@ -87,9 +97,9 @@
 				      </div>
 				      <div class="row mb-3">
 				        <div class="col-sm-12 text-sm-end">
-				          <button type="button" class="btn btn-primary">등록</button>
-				          <button type="button" class="btn btn-primary">취소</button>
-				          <button type="button" class="btn btn-primary">목록</button>
+				          <button type="submit" class="btn btn-primary" id="writeBtn">등록</button>
+				          <button type="reset" class="btn btn-primary" id="cancelBtn">취소</button>
+				          <button type="button" class="btn btn-primary" id="listBtn">목록</button>
 				        </div>
 				      </div>
 				    </form>

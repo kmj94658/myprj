@@ -40,6 +40,7 @@
       text-align: center;
     }
   </style>
+  
   <script>
   	window.addEventListener("DOMContentLoaded", init);
   	//호이스팅으로 인해 함수정의 위치는 상관없음
@@ -79,12 +80,12 @@
 				        </tr>
 				      </thead>
 				      <tbody>
-				        <tr>
-				          <th scope="row">1</th>
-				          <td>반갑습니다</td>
-				          <td>홍길동</td>
-				          <td>2021-09-01</td>
-				          <td>10</td>
+				        <tr th:each="item : ${list}">
+				          <th scope="row" th:text="${item.bnum}">1</th>
+				          <td ><a href="#" th:href="@{|/bbs/${item.bnum}/|}" th:text="${item.btitle}">반갑습니다</a></td>
+				          <td th:text="${item.bnickname}">홍길동</td>
+				          <td th:text="${item.bcdate}">2021-09-01</td>
+				          <td th:text="${item.bhit}">10</td>
 				        </tr>
 				      </tbody>
 				    </table>

@@ -11,7 +11,7 @@ public interface BoardDAO {
 	 * @param boardDTO
 	 * @return
 	 */
-	Long write(BoardDTO boardDTO);
+	Long write(BoardDTO boardDTO); //반환타입을 wrapper 클래스로 하는 이유? -자동으로 박싱이 된다. 기본타입은 null값을 못갖는다. 
 	
 	/**
 	 * 답글 작성
