@@ -1,6 +1,9 @@
 package com.kh.myprj.domain.board.dto;
 
 import java.sql.Timestamp;
+import java.util.List;
+
+import com.kh.myprj.domain.common.dto.UpLoadFileDTO;
 
 import lombok.Data;
 
@@ -22,4 +25,5 @@ public class BoardDTO {
 	private String status;			//	STATUS	CHAR(1 BYTE)
 	private Timestamp bcdate;				//	BCDATE	TIMESTAMP(6)
 	private Timestamp budate;				//	BUDATE	TIMESTAMP(6)
+	private List<UpLoadFileDTO> files;
 }

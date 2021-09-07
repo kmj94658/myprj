@@ -235,4 +235,15 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
+	//조회수 증가
+	@Override
+	public void updateBhit(Long bnum) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("update board ");
+		sql.append(" set bhit = bhit + 1 ");
+		sql.append(" where bnum = ? ");
+		
+		jt.update(sql.toString(), bnum);
+	}
+
 }

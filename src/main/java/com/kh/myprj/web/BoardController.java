@@ -1,5 +1,7 @@
 package com.kh.myprj.web;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kh.myprj.domain.board.dto.BoardDTO;
 import com.kh.myprj.domain.board.svc.BoardSVC;
 import com.kh.myprj.domain.common.dao.CodeDAO;
+import com.kh.myprj.domain.common.dto.MetaOfUploadFile;
+import com.kh.myprj.domain.common.dto.UpLoadFileDTO;
+import com.kh.myprj.domain.common.file.FileStore;
 import com.kh.myprj.web.api.JsonResult;
 import com.kh.myprj.web.form.Code;
 import com.kh.myprj.web.form.LoginMember;
@@ -41,6 +46,7 @@ public class BoardController {
 
 	private final BoardSVC boardSVC;
 	private final CodeDAO codeDAO;
+	private final FileStore fileStore;
 	
 	@ModelAttribute("category") //뷰단에서 category로 접근 가능
 	public List<Code> category(){
@@ -70,7 +76,7 @@ public class BoardController {
 	
 	//원글 작성 처리
 	@PostMapping("/")
-	public String write(@Valid @ModelAttribute WriteForm writeForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) { //writeForm객체와 연결, 폼객체 바인딩하면서 에러는 bindingResult에 담는다
+	public String write(@Valid @ModelAttribute WriteForm writeForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IllegalStateException, IOException { //writeForm객체와 연결, 폼객체 바인딩하면서 에러는 bindingResult에 담는다
 		
 		//오류가 있으면
 		if(bindingResult.hasErrors()) {
@@ -80,11 +86,33 @@ public class BoardController {
 		BoardDTO boardDTO = new BoardDTO();
 		
 		BeanUtils.copyProperties(writeForm, boardDTO); //필드명이 같으면 copyProperties
+		
+		//첨부파일 파일시스템에 저장 후 메타정보 추출
+		List<MetaOfUploadFile> storedFiles = fileStore.storeFiles(writeForm.getFiles());
+		//UploadFileDTO 변환
+		boardDTO.setFiles(convert(storedFiles));
+		
 		Long bnum = boardSVC.write(boardDTO);
 		
 		redirectAttributes.addAttribute("bnum", bnum);
 		
 		return "redirect:/bbs/{bnum}";
+	}
+	
+	private UpLoadFileDTO convert(MetaOfUploadFile attatchFile) {
+		UpLoadFileDTO uploadFileDTO = new UpLoadFileDTO();
+		BeanUtils.copyProperties(attatchFile, uploadFileDTO);
+		return uploadFileDTO;
+	}
+	
+	private List<UpLoadFileDTO> convert(List<MetaOfUploadFile> uploadFiles) {
+		List<UpLoadFileDTO> list = new ArrayList<>();
+	
+		for(MetaOfUploadFile file : uploadFiles) {
+			UpLoadFileDTO uploadFIleDTO = convert(file);
+			list.add( uploadFIleDTO );
+		}		
+		return list;
 	}
 	
 	//답글 작성 양식
