@@ -74,7 +74,7 @@
 }
 .global-wrap .gnb .depth1 {
   display:flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   text-align: center;
   background-color: #333; color:#fff;
   font-weight: bold;

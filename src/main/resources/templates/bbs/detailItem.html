@@ -102,7 +102,9 @@
 					      </div>
 					      <div class="row mb-3">
 					        <div class="col-sm-12 text-sm-end">
-					        	<th:block th:if="${#strings.equals(email,detailItem.bemail)}">
+					        	<button type="button" class="btn btn-primary" id="replyBtn" th:data-bnum="*{bnum}">답글</button>
+					        	
+					        	<th:block th:if="${email} == *{bemail}">
 					          	<button type="button" class="btn btn-primary" id="modifyBtn" th:data-bnum="*{bnum}">수정</button>
 					          	<button type="button" class="btn btn-primary" id="delBtn"  th:data-bnum="*{bnum}">삭제</button>
 					          </th:block>

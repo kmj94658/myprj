@@ -82,9 +82,9 @@ public class UpLoadFileDAOImpl implements UpLoadFileDAO{
 		sql.append(" where rid = ? ");
 		
 		List<UpLoadFileDTO> list = 
-				jt.query( sql.toString(), 
+				jt.query(sql.toString(), 
 									new BeanPropertyRowMapper<>(UpLoadFileDTO.class), 
-									rid );
+									rid);
 		
 		return list;
 	}
@@ -100,13 +100,36 @@ public class UpLoadFileDAOImpl implements UpLoadFileDAO{
 		sql.append("   and code = ? ");		
 
 		List<UpLoadFileDTO> list = 
-				jt.query( sql.toString(), 
+				jt.query(sql.toString(), 
 									new BeanPropertyRowMapper<>(UpLoadFileDTO.class), 
-									rid, code );
+									rid, code);
 		
 		return list;
 	}
+	
+	@Override
+	public UpLoadFileDTO getFileByFid(String fid) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select fid,rid,code,store_fname,upload_fname, ");
+		sql.append("       fsize,ftype,cdate,udate ");
+		sql.append("  from uploadfile  ");
+		sql.append(" where fid  = ? ");
+		
+		return jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(UpLoadFileDTO.class), fid);
+		
+	}
 
+	@Override
+	public UpLoadFileDTO getFileBySfname(String sfname) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select fid,rid,code,store_fname,upload_fname, ");
+		sql.append("       fsize,ftype,cdate,udate ");
+		sql.append("  from uploadfile  ");
+		sql.append(" where store_fname  = ? ");
+		
+		return jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(UpLoadFileDTO.class), sfname);
+	}
+	
 	/**
 	 * 첨부파일 삭제 by rid
 	 */
@@ -137,6 +160,27 @@ public class UpLoadFileDAOImpl implements UpLoadFileDAO{
 				jt.queryForList(sql, String.class, rid);
 		
 		return store_fnames;
+	}
+	
+	/**
+	 * 파일삭제 by fid
+	 */
+	@Override
+	public void deleteFileByFid(String fid) {
+		String sql = "delete from uploadfile where fid = ? ";
+		
+		jt.update(sql, fid);
+		
+	}
+	
+	/**
+	 * 파일삭제 by sfname
+	 */
+	@Override
+	public void deleteFileBySfname(String sfname) {
+		String sql = "delete from uploadfile where store_fname = ? ";
+		
+		jt.update(sql, sfname);
 	}
 }
 

@@ -106,7 +106,7 @@ public class BoardDAOImpl implements BoardDAO {
 		sql.append("  0, "); //조회수
 		sql.append("  ?, ");
 		sql.append("  ?, "); //부모글
-		sql.append("  board_bnum_seq.currval, "); //답글그룹
+		sql.append("  ?, "); //답글그룹
 		sql.append("  ?, "); //답글 순서
 		sql.append("  ? "); //답글 들여쓰기
 		sql.append(") ");
@@ -125,8 +125,9 @@ public class BoardDAOImpl implements BoardDAO {
 					pstmt.setString(5, boardDTO.getBnickname());
 					pstmt.setString(6, boardDTO.getBcontent());
 					pstmt.setLong(7, boardDTO.getPbnum());
-					pstmt.setLong(8, boardDTO.getBstep() + 1);
-					pstmt.setLong(9, boardDTO.getBindent() + 1);
+					pstmt.setLong(8, boardDTO.getBgroup());
+					pstmt.setLong(9, boardDTO.getBstep() + 1);
+					pstmt.setLong(10, boardDTO.getBindent() + 1);
 				
 				return pstmt;
 			}
