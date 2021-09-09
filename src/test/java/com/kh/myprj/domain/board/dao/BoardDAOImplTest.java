@@ -36,8 +36,26 @@ public class BoardDAOImplTest {
 	}
 	
 	@Test
+	@DisplayName("원글 생성")
+	void write300() {
+		
+		for(int i=0; i<300; i++) {
+			BoardDTO boardDTO = new BoardDTO();
+			boardDTO.setBcategory("A0502");
+			boardDTO.setBtitle("제목-"+(i+1));
+			boardDTO.setBid(27L);
+			boardDTO.setBemail("test3@test.com");
+			boardDTO.setBnickname("테스터3");
+			boardDTO.setBcontent("내용-"+(i+1));
+			Long bnum = boardDAOImpl.write(boardDTO);
+			log.info("원글생성 bnum:{}",bnum);
+		}
+		
+	}
+	
+	@Test
 	@DisplayName("수정")
-	//@Disabled
+	@Disabled
 	void modifyItem() {
 		Long bnum = 21L;
 		BoardDTO boardDTO = new BoardDTO();

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +30,8 @@ import com.kh.myprj.domain.common.dao.CodeDAO;
 import com.kh.myprj.domain.common.dto.MetaOfUploadFile;
 import com.kh.myprj.domain.common.dto.UpLoadFileDTO;
 import com.kh.myprj.domain.common.file.FileStore;
+import com.kh.myprj.domain.common.paging.PageCriteria;
+import com.kh.myprj.domain.common.paging.RecordCriteria;
 import com.kh.myprj.web.api.JsonResult;
 import com.kh.myprj.web.form.Code;
 import com.kh.myprj.web.form.LoginMember;
@@ -47,6 +51,10 @@ public class BoardController {
 	private final BoardSVC boardSVC;
 	private final CodeDAO codeDAO;
 	private final FileStore fileStore;
+	
+	@Autowired
+	@Qualifier("pc5")
+	private PageCriteria pc;
 	
 	@ModelAttribute("category") //뷰단에서 category로 접근 가능
 	public List<Code> category(){
@@ -191,10 +199,27 @@ public class BoardController {
 	}
 	
 	//게시글 목록
-	@GetMapping("/list")
-	public String list(Model model) {
-		List<BoardDTO> list = boardSVC.list();
+	@GetMapping({"/list","/list/{reqPage}"})
+	public String list(@PathVariable(required = false) Integer reqPage, Model model) {
+		
+		//요청페이지가 비었으면 기본 1페이지로
+		if(reqPage == null) {
+			reqPage = 1;
+		}
+		
+		//사용자가 요청한 페이지번호
+		pc.getRc().setReqPage(reqPage);
+		
+		//게시판 전체 레코드 수
+		pc.setTotalRec(boardSVC.totalRecordCount());
+		
+		//페이징 계산
+		pc.calculatePaging();
+		
+		List<BoardDTO> list = boardSVC.list(pc.getRc().getStartRec(), pc.getRc().getEndRec());
 		model.addAttribute("list", list);
+		model.addAttribute("pc", pc);
+		
 		return "bbs/list";
 	}
 	
