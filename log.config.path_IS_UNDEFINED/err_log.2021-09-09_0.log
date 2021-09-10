@@ -1,0 +1,260 @@
+ERROR 21-09-09 15:24:35[restartedMain] [SpringApplication:843] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'boardDAOImpl' defined in file [D:\javaedu\project\myprojects\myprj\bin\main\com\kh\myprj\domain\board\dao\BoardDAOImpl.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.kh.myprj.domain.board.dao.BoardDAOImpl]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	The type BoardDAOImpl must implement the inherited abstract method BoardDAO.list(int, int)
+	Duplicate method list() in type BoardDAOImpl
+	startRec cannot be resolved to a type
+	Syntax error on token ",", delete this token
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:315)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:296)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1204)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.kh.myprj.MyprjApplication.main(MyprjApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.kh.myprj.domain.board.dao.BoardDAOImpl]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	The type BoardDAOImpl must implement the inherited abstract method BoardDAO.list(int, int)
+	Duplicate method list() in type BoardDAOImpl
+	startRec cannot be resolved to a type
+	Syntax error on token ",", delete this token
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:311)
+	... 24 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	The type BoardDAOImpl must implement the inherited abstract method BoardDAO.list(int, int)
+	Duplicate method list() in type BoardDAOImpl
+	startRec cannot be resolved to a type
+	Syntax error on token ",", delete this token
+
+	at com.kh.myprj.domain.board.dao.BoardDAOImpl.<init>(BoardDAOImpl.java:23)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208)
+	... 26 common frames omitted
+ERROR 21-09-09 15:57:29[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' in your configuration.
+
+ERROR 21-09-09 15:58:10[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' in your configuration.
+
+ERROR 21-09-09 15:59:32[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.kh.myprj.domain.common.paging.PageCriteria' in your configuration.
+
+ERROR 21-09-09 15:59:59[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9080 or configure this application to listen on another port.
+
+ERROR 21-09-09 17:12:54[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc_10: defined by method 'pc_10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc_5: defined by method 'pc_5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:13:38[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc_10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc_5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:15:03[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc_10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc_5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:20:32[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc_10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc_5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:24:29[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:24:36[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:26:03[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+ERROR 21-09-09 17:26:30[restartedMain] [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.kh.myprj.web.BoardController required a single bean, but 2 were found:
+	- pc10: defined by method 'pc10' in class path resource [com/kh/myprj/web/PagingConfig.class]
+	- pc5: defined by method 'pc5' in class path resource [com/kh/myprj/web/PagingConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+

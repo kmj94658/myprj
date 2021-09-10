@@ -15,7 +15,6 @@ public class PageCriteriaTest {
 				
 		PageCriteria pc = new PageCriteria(rc, 10);
 		pc.setTotalRec(324); //총레코드수
-		pc.calculatePaging();
 		
 		log.info("시작레코드:{}, 종료레코드:{}", pc.getRc().getStartRec(), pc.getRc().getEndRec());
 		log.info("시작페이지:{}, 종료레코드:{}", pc.getStartPage(), pc.getEndPage());

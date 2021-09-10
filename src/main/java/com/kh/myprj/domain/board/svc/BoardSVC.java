@@ -34,6 +34,7 @@ public interface BoardSVC {
 	 */
 	List<BoardDTO> list();
 	List<BoardDTO> list(int startRec, int endRec);
+	List<BoardDTO> list(String bcategory, int startRec, int endRec);
 	
 	/**
 	 * 게시글 상세
@@ -53,4 +54,11 @@ public interface BoardSVC {
 	 * @return
 	 */
 	long totalRecordCount();
+	
+	/**
+	 * 게시판 카테고리별 전체 레코드 수
+	 * @param category
+	 * @return
+	 */
+	long totalRecordCount(String bcategory);
 }

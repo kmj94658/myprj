@@ -74,6 +74,13 @@ public class BoardSVCImpl implements BoardSVC {
 		List<BoardDTO> list = boardDAO.list(startRec, endRec);
 		return list;
 	}
+	
+	//게시글 목록 + 페이징 + 카테고리
+	@Override
+	public List<BoardDTO> list(String bcategory, int startRec, int endRec) {
+		List<BoardDTO> list = boardDAO.list(bcategory, startRec, endRec);
+		return list;
+	}
 
 	//게시글 상세
 	@Override
@@ -112,5 +119,12 @@ public class BoardSVCImpl implements BoardSVC {
 	public long totalRecordCount() {
 		
 		return boardDAO.totalRecordCount();
+	}
+	
+	//카테고리별 게시판 전체 레코드 수
+	@Override
+	public long totalRecordCount(String bcategory) {
+
+		return boardDAO.totalRecordCount(bcategory);
 	}
 }

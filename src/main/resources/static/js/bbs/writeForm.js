@@ -6,5 +6,6 @@
 	
 	//목록
 	$listBtn.addEventListener("click", e=> {
-		location.href="/bbs/list";
+		const cate = e.target.dataset.cate;
+		location.href=`/bbs/list?cate=${cate}`;
 	});

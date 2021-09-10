@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -53,7 +54,7 @@ public class BoardController {
 	private final FileStore fileStore;
 	
 	@Autowired
-	@Qualifier("pc5")
+	@Qualifier("pc10")
 	private PageCriteria pc;
 	
 	@ModelAttribute("category") //뷰단에서 category로 접근 가능
@@ -64,17 +65,19 @@ public class BoardController {
 	}
 	
 	//원글 작성 양식
-	@GetMapping("/")
-	public String writeForm(Model model, HttpServletRequest request) {
+	@GetMapping("")
+	public String writeForm(@RequestParam String cate, Model model, HttpServletRequest request) {
 		
 		//작성 전 로그인 됐는지 확인
 		WriteForm writeForm = new WriteForm();
+		
 		HttpSession session = request.getSession(false);
 		if(session != null && session.getAttribute("loginMember") != null) {
 			LoginMember loginMember = (LoginMember)session.getAttribute("loginMember");
 			writeForm.setBid(loginMember.getId());
 			writeForm.setBemail(loginMember.getEmail());
 			writeForm.setBnickname(loginMember.getNickname());
+			writeForm.setBcategory(cate);
 			
 		}
 		model.addAttribute("writeForm", writeForm);
@@ -83,8 +86,8 @@ public class BoardController {
 	}
 	
 	//원글 작성 처리
-	@PostMapping("/")
-	public String write(@Valid @ModelAttribute WriteForm writeForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IllegalStateException, IOException { //writeForm객체와 연결, 폼객체 바인딩하면서 에러는 bindingResult에 담는다
+	@PostMapping("")
+	public String write(@RequestParam String cate, @Valid @ModelAttribute WriteForm writeForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IllegalStateException, IOException { //writeForm객체와 연결, 폼객체 바인딩하면서 에러는 bindingResult에 담는다
 		
 		//오류가 있으면
 		if(bindingResult.hasErrors()) {
@@ -191,7 +194,7 @@ public class BoardController {
 	
 	//게시글 상세
 	@GetMapping("/{bnum}")
-	public String detailItem(@PathVariable("bnum") Long bnum, Model model) { //백에서 불러온것을 뷰단에서 참고할수 있게 model 사용
+	public String detailItem(@PathVariable Long bnum, Model model) { //백에서 불러온것을 뷰단에서 참고할수 있게 model 사용
 		
 		model.addAttribute("detailItem", boardSVC.itemDetail(bnum)) ;
 		
@@ -200,25 +203,37 @@ public class BoardController {
 	
 	//게시글 목록
 	@GetMapping({"/list","/list/{reqPage}"})
-	public String list(@PathVariable(required = false) Integer reqPage, Model model) {
+	public String list(@PathVariable(required = false) Integer reqPage, @RequestParam(required = false) String cate, Model model) {
+		
+		List<BoardDTO> list = null;
 		
 		//요청페이지가 비었으면 기본 1페이지로
 		if(reqPage == null) {
 			reqPage = 1;
 		}
 		
-		//사용자가 요청한 페이지번호
-		pc.getRc().setReqPage(reqPage);
+		//사용자가 요청한 카테고리가 있는지
+		if(cate == null) {
+			//사용자가 요청한 페이지번호
+			pc.getRc().setReqPage(reqPage);
+			
+			//게시판 전체 레코드 수
+			pc.setTotalRec(boardSVC.totalRecordCount());
+			
+			list = boardSVC.list(pc.getRc().getStartRec(), pc.getRc().getEndRec());
+		} else {
+			//사용자가 요청한 페이지번호
+			pc.getRc().setReqPage(reqPage);
+			
+			//게시판 전체 레코드 수
+			pc.setTotalRec(boardSVC.totalRecordCount(cate));
+			
+			list = boardSVC.list(cate, pc.getRc().getStartRec(), pc.getRc().getEndRec());
+		}
 		
-		//게시판 전체 레코드 수
-		pc.setTotalRec(boardSVC.totalRecordCount());
-		
-		//페이징 계산
-		pc.calculatePaging();
-		
-		List<BoardDTO> list = boardSVC.list(pc.getRc().getStartRec(), pc.getRc().getEndRec());
 		model.addAttribute("list", list);
 		model.addAttribute("pc", pc);
+		model.addAttribute("cate", cate);
 		
 		return "bbs/list";
 	}

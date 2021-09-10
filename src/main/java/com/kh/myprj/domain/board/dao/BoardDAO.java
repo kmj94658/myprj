@@ -32,8 +32,9 @@ public interface BoardDAO {
 	 * 게시글 목록
 	 * @return
 	 */
-	List<BoardDTO> list();
-	List<BoardDTO> list(int startRec, int endRec);
+	List<BoardDTO> list(); //페이징 X
+	List<BoardDTO> list(int startRec, int endRec); //페이징 반영된 목록
+	List<BoardDTO> list(String bcategory, int startRec, int endRec); //페이징 반영된 카테고리별 목록
 	
 	/**
 	 * 게시글 상세
@@ -59,4 +60,11 @@ public interface BoardDAO {
 	 * @return
 	 */
 	long totalRecordCount();
+	
+	/**
+	 * 게시판 카테고리별 전체 레코드 수
+	 * @param category
+	 * @return
+	 */
+	long totalRecordCount(String bcategory);
 }
