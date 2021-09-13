@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.myprj.domain.board.dao.BoardDAO;
 import com.kh.myprj.domain.board.dto.BoardDTO;
+import com.kh.myprj.domain.board.dto.SearchDTO;
 import com.kh.myprj.domain.common.dao.UpLoadFileDAO;
 import com.kh.myprj.domain.common.dto.UpLoadFileDTO;
 import com.kh.myprj.domain.common.file.FileStore;
@@ -61,7 +62,7 @@ public class BoardSVCImpl implements BoardSVC {
 		return modifiedbnum;
 	}
 
-	//게시글 목록
+	//게시글 전체목록
 	@Override
 	public List<BoardDTO> list() {
 		List<BoardDTO> list = boardDAO.list();
@@ -79,6 +80,20 @@ public class BoardSVCImpl implements BoardSVC {
 	@Override
 	public List<BoardDTO> list(String bcategory, int startRec, int endRec) {
 		List<BoardDTO> list = boardDAO.list(bcategory, startRec, endRec);
+		return list;
+	}
+	
+	//게시글 검색목록
+	@Override
+	public List<BoardDTO> list(int startRec, int endRec, String searchType, String keyword) {
+		List<BoardDTO> list = boardDAO.list(startRec, endRec, searchType, keyword);
+		return list;
+	}
+	
+	//게시글 검색목록 + 페이징 + 카테고리
+	@Override
+	public List<BoardDTO> list(SearchDTO searchDTO) {
+		List<BoardDTO> list = boardDAO.list(searchDTO);
 		return list;
 	}
 
@@ -126,5 +141,19 @@ public class BoardSVCImpl implements BoardSVC {
 	public long totalRecordCount(String bcategory) {
 
 		return boardDAO.totalRecordCount(bcategory);
+	}
+	
+	//카테고리별 게시판 전체 검색레코드 수
+	@Override
+	public long totalRecordCount(String bcategory, String searchType, String keyword) {
+		
+		return boardDAO.totalRecordCount(bcategory, searchType, keyword);
+	}
+	
+	//게시판 전체 검색 레코드 수
+	@Override
+	public long totalRecordCount(String searchType, String keyword) {
+
+		return boardDAO.totalRecordCount(searchType, keyword);
 	}
 }

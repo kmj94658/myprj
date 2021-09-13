@@ -22,7 +22,11 @@ public class CodeDAOImpl implements CodeDAO {
 	public List<Code> getCode(String pcode) {
 
 		StringBuffer sql = new StringBuffer();
-		sql.append("select code,decode from code where pcode = ?");
+		 sql.append("select code,decode from code ");
+     sql.append(" where pcode = ? ");
+     sql.append("   and use_yn = 'Y' ");
+     sql.append("   order by code");
+
 		List<Code> codes = 
 				jt.query(sql.toString(), new BeanPropertyRowMapper<>(Code.class), pcode);
 		return codes;

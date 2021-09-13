@@ -3,6 +3,7 @@ package com.kh.myprj.domain.board.dao;
 import java.util.List;
 
 import com.kh.myprj.domain.board.dto.BoardDTO;
+import com.kh.myprj.domain.board.dto.SearchDTO;
 
 public interface BoardDAO {
 
@@ -35,6 +36,9 @@ public interface BoardDAO {
 	List<BoardDTO> list(); //페이징 X
 	List<BoardDTO> list(int startRec, int endRec); //페이징 반영된 목록
 	List<BoardDTO> list(String bcategory, int startRec, int endRec); //페이징 반영된 카테고리별 목록
+	//List<BoardDTO> list(String bcategory, int startRec, int endRec, String searchType, String keyword); //검색 반영된 목록
+	List<BoardDTO> list(SearchDTO searchDTO); //위처럼 하지말고 통합한 하나의 객체 따로 만들기
+	List<BoardDTO> list(int startRec, int endRec, String searchType, String keyword); //게시글 전체 검색목록
 	
 	/**
 	 * 게시글 상세
@@ -67,4 +71,21 @@ public interface BoardDAO {
 	 * @return
 	 */
 	long totalRecordCount(String bcategory);
+	
+	/**
+	 * 전체 게시판 검색 레코드 총수
+	 * @param searchType
+	 * @param keyword
+	 * @return
+	 */
+	long totalRecordCount(String searchType, String keyword);
+	
+	/**
+	 * 게시판 카테고리별 검색 레코드 총수 
+	 * @param bcategory
+	 * @param searchType
+	 * @param keyword
+	 * @return
+	 */
+	long totalRecordCount(String bcategory, String searchType, String keyword);
 }

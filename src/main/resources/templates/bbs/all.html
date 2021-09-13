@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko" 
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/main::copyParam(
+      	~{::title},	<!--/* title 		대체 */-->
+      	~{::link},	<!--/* links 		추가 */-->
+      	~{::script},				<!--/* scripts 	생략 */-->
+      	~{::style},				<!--/* style */-->
+      	~{},				<!--/* header */-->
+      	~{::nav},					<!--/* nav */ 기본값 사용 */--> 
+      	~{::main},  <!--/* main 		대체 */-->
+      	_  					<!--/* footer */ 기본값 사용 */--> 
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>커뮤니티</title>
+  
+  <link rel="stylesheet" href="/css/xxx.css" />
+  <script src="/js/bbs/all.js" defer></script>
+  
+  <style>
+    .bbs-title{
+    	color:black;
+    }
+    .main .wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .wrap .table td:last-child {
+      text-align: right;
+    }
+    .main .wrap .wrap-bbs{
+      width:90%;
+    }
+    .wrap .bbs-title {
+      text-align: center;
+    }
+    #icon{
+    	color:gray;
+    }
+    .main .wrap-bbs-btns {
+    	text-align: right;
+    }
+  </style>
+  
+  <script src="/js/bbs/list.js" defer></script>
+  
+</head>
+<body>
+  <div class="global-wrap">
+    <div class="hdr">
+      <div class="inner hdr-inner">
+        <header>헤더</header>
+      </div>
+    </div>
+    <div>
+    	<div class="inner gnb-inner">
+    		<nav th:replace="~{fragment/gnb/menu::global}">메뉴</nav>
+    	</div>
+    </div>
+    <div class="main">
+      <div class="inner main-inner">
+      	<main>
+      		 <div class="wrap">
+      		   <div class="wrap-bbs">
+      		   	<!-- <div aria-label="breadcrumb">
+							  <ol class="breadcrumb">
+							    <li class="breadcrumb-item"><a href="#">Home</a></li>
+							    <li class="breadcrumb-item"><a href="#">게시판</a></li>
+							    <li class="breadcrumb-item active" th:each="bbs : ${category}" th:if="${bbs.code == cate}" th:text="${bbs.decode}">Data</li>
+							  </ol>
+							</div> -->
+					    <table class="table table-hover table-bordered caption-top">
+					      <caption class="bbs-title">전체 게시글 목록</caption>
+					      <thead>
+					        <tr class="table-secondary">
+					          <th scope="col">번호</th>
+					          <th scope="col">분류</th>
+					          <th scope="col">제목</th>
+					          <th scope="col">작성자</th>
+					          <th scope="col">작성일</th>
+					          <th scope="col">조회</th>
+					        </tr>
+					      </thead>
+					      <tbody>
+					        <tr th:each="item : ${list}">
+					          <th scope="row" th:text="${item.bnum}">1</th>
+					          <th scope="row" th:each="bbs : ${category}" th:if="${bbs.code == item.bcategory}" th:text="${bbs.decode}">분류</th>
+					          <td class="w-50">
+					          	<th:block th:if="${item.bindent} > 0">
+					          		<span th:each="cnt : ${#numbers.sequence(1,item.bindent)}">&nbsp;&nbsp;</span>
+					          		<i id="icon" class="fas fa-reply"></i>
+					          	</th:block>
+					          	<a href="#" th:href="@{|/bbs/${item.bnum}/|}" th:text="${item.btitle}">반갑습니다</a>
+					          </td>
+					          <td th:text="${item.bnickname}">홍길동</td>
+					          <td th:text="${#calendars.format(item.bcdate,'yyyy-MM-dd hh:mm')}">2021-09-01</td>
+					          <td th:text="${item.bhit}">10</td>
+					        </tr>
+					      </tbody>
+					    </table>
+					  <!-- <div class="wrap-bbs-btns" ><button type="button" id="writeBtn" class="btn btn-primary" th:data-cate="${cate}">글작성</button></div> -->
+					   <div class="wrap-bbs-paging">
+               <ul class="pagination pagination-sm justify-content-center">
+                  <th:block th:if="${fc.prev}">
+                     <li class="page-item">
+                          <a class="page-link" href="#" th:href="@{/bbs/all/1/{searchType}/{keyword}(searchType=${fc.searchType},keyword=${fc.keyword})}"><i class="fas fa-angle-double-left"></i></a>
+                     </li>
+                     <li class="page-item">
+                          <a class="page-link" href="#" th:href="@{/bbs/all/{reqPage}/{searchType}/{keyword}(reqPage=${fc.startPage-1},searchType=${fc.searchType},keyword=${fc.keyword})}"><i class="fas fa-angle-left"></i></a>
+                     </li>
+                  </th:block>
+                 <th:block th:each="pnum : ${#numbers.sequence(fc.startPage,fc.endPage)}">
+                    <th:block th:if="${pnum != 0}">
+                       <li class="page-item active" aria-current="page"
+                             th:if="${fc.rc.reqPage == pnum}">
+                      <span class="page-link" th:text="${pnum}">1</span>
+                    </li>                         
+                    <li class="page-item" 
+                          th:if="${fc.rc.reqPage != pnum}">
+                       <a class="page-link" href="#" th:href="@{/bbs/all/{reqPage}/{searchType}/{keyword}(reqPage=${pnum},searchType=${fc.searchType},keyword=${fc.keyword})}" th:text="${pnum}">3</a>
+                    </li>
+                    </th:block>
+                 </th:block>
+                 <th:block th:if="${fc.next}">
+                     <li class="page-item">
+                          <a class="page-link" href="#" th:href="@{/bbs/all/{reqPage}/{searchType}/{keyword}(reqPage=${fc.endPage+1},searchType=${fc.searchType},keyword=${fc.keyword})}"><i class="fas fa-angle-right"></i></a>
+                     </li>
+                     <li class="page-item">
+                          <a class="page-link" href="#" 
+                             th:href="@{/bbs/all/{reqPage}/{searchType}/{keyword}(reqPage=${fc.finalEndPage},searchType=${fc.searchType},keyword=${fc.keyword})}">
+                             <i class="fas fa-angle-double-right"></i>
+                          </a>
+                     </li>      
+                   </th:block>
+               </ul>
+             </div>
+              <!-- 검색 -->
+                <div class="wrap-bbs-search mt-4 row g-1 justify-content-center" >
+                   <div class="col-md-2">
+                         <select class="form-select form-select-sm" name="searchType" id="searchType" th:field="${fc.searchType}">
+                            <option th:value="TC">제목+내용</option>
+                            <option th:value="T">제목</option>
+                            <option th:value="C">내용</option>
+                            <option th:value="E">아이디</option>
+                            <option th:value="N">별칭</option>
+                            <option th:value="A">전체</option>
+                         </select>
+                   </div>
+                   <div class="col-md-3">
+                      <input class="form-control form-control-sm" type="text" name="keyword" id="keyword" th:field="${fc.keyword}" th:data-cate="${cate}"/>
+                   </div>
+                   <div class="col-md-1">
+                      <button id="searchBtn" type="button" class="btn btn-outline-secondary btn-sm" th:data-cate="${cate}">검색</button>
+                   </div>
+                </div>
+					</div>
+				</div>
+      	</main>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="inner foot-inner">
+        <footer>푸터</footer>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>

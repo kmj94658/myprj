@@ -3,6 +3,7 @@ package com.kh.myprj.domain.board.svc;
 import java.util.List;
 
 import com.kh.myprj.domain.board.dto.BoardDTO;
+import com.kh.myprj.domain.board.dto.SearchDTO;
 
 public interface BoardSVC {
 
@@ -35,6 +36,8 @@ public interface BoardSVC {
 	List<BoardDTO> list();
 	List<BoardDTO> list(int startRec, int endRec);
 	List<BoardDTO> list(String bcategory, int startRec, int endRec);
+	List<BoardDTO> list(SearchDTO searchDTO);
+	List<BoardDTO> list(int startRec, int endRec, String searchType, String keyword);
 	
 	/**
 	 * 게시글 상세
@@ -61,4 +64,21 @@ public interface BoardSVC {
 	 * @return
 	 */
 	long totalRecordCount(String bcategory);
+	
+	/**
+	 * 전체 게시판 검색 레코드 총수
+	 * @param searchType
+	 * @param keyword
+	 * @return
+	 */
+	long totalRecordCount(String searchType, String keyword);
+	
+	/**
+	 * 게시판 카테고리별 검색 레코드 총수 
+	 * @param bcategory
+	 * @param searchType
+	 * @param keyword
+	 * @return
+	 */
+	long totalRecordCount(String bcategory, String searchType, String keyword);
 }
